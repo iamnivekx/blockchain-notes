@@ -1,14 +1,7 @@
 import { Connection, PublicKey } from '@solana/web3.js';
 
-// Raydium Liquidity Pool V4
-const poolId = new PublicKey('675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8');
-
-// Establish new connect to mainnet - websocket client connected to mainnet will also be registered here
-const url = 'https://api.mainnet-beta.solana.com';
-const connection = new Connection(url, 'finalized');
-
-function main() {
-  connection.onLogs(
+function onLogs(conn: Connection, poolId: PublicKey) {
+  conn.onLogs(
     poolId,
     ({ err, logs, signature }) => {
       if (err) return;
@@ -19,6 +12,18 @@ function main() {
     },
     'confirmed',
   );
+}
+
+function main() {
+  const url = process.env.SOLANA_RPC_URL!;
+  const conn = new Connection(url, {
+    commitment: 'confirmed',
+    wsEndpoint: process.env.SOLANA_WS_URL!,
+  });
+
+  // Raydium Liquidity Pool V4
+  const poolId = new PublicKey('675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8');
+  onLogs(conn, poolId);
 }
 
 main();
