@@ -14,10 +14,14 @@ function onWSolPrice(conn: Connection) {
   conn.onAccountChange(
     marketId,
     async (accountInfo) => {
-      const poolData = PoolInfoLayout.decode(accountInfo.data);
-      const price = SqrtPriceMath.sqrtPriceX64ToPrice(poolData.sqrtPriceX64, poolData.mintDecimalsA, poolData.mintDecimalsB);
-      console.log(`WSOL/USDC:`, price);
-      solUsd = price;
+      try {
+        const poolData = PoolInfoLayout.decode(accountInfo.data);
+        const price = SqrtPriceMath.sqrtPriceX64ToPrice(poolData.sqrtPriceX64, poolData.mintDecimalsA, poolData.mintDecimalsB);
+        console.log(`WSOL/USDC:`, price);
+        solUsd = price;
+      } catch (error) {
+        console.error('Error decoding pool data:', error);
+      }
     },
     {
       commitment: 'confirmed',
@@ -40,12 +44,14 @@ function onWSolToMint(conn: Connection) {
           poolInfo.mintDecimalsA,
           poolInfo.mintDecimalsB,
         ).toDecimalPlaces(10);
+        const priceUsd = new Decimal(solUsd).div(currentPrice);
+
         console.log({
           poolAddress: account.accountId.toBase58(),
           mintA: poolInfo.mintA.toBase58(), // WSOL
           mintB: poolInfo.mintB.toBase58(), // Mint
           price: currentPrice.toString(),
-          priceUsd: new Decimal(solUsd).div(currentPrice).toString(),
+          priceUsd: priceUsd.toString(),
           timestamp: new Date().toISOString(),
           liquidity: poolInfo.liquidity.toString(),
         });
@@ -76,7 +82,6 @@ function onWSolToMint(conn: Connection) {
 
 async function main() {
   const { SOLANA_RPC_URL, SOLANA_WS_URL } = process.env;
-  console.log('SOLANA_RPC_URL : ', SOLANA_WS_URL);
   const conn = new Connection(SOLANA_RPC_URL, {
     commitment: 'confirmed',
     wsEndpoint: SOLANA_WS_URL,

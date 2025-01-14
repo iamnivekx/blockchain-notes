@@ -10,9 +10,13 @@ function onPriceChange(conn: Connection) {
   conn.onAccountChange(
     marketId,
     async (accountInfo) => {
-      const poolData = PoolInfoLayout.decode(accountInfo.data);
-      const price = SqrtPriceMath.sqrtPriceX64ToPrice(poolData.sqrtPriceX64, poolData.mintDecimalsA, poolData.mintDecimalsB).toFixed(6);
-      console.log(`WSOL/USDC:`, price);
+      try {
+        const poolData = PoolInfoLayout.decode(accountInfo.data);
+        const price = SqrtPriceMath.sqrtPriceX64ToPrice(poolData.sqrtPriceX64, poolData.mintDecimalsA, poolData.mintDecimalsB).toFixed(6);
+        console.log(`WSOL/USDC:`, price);
+      } catch (error) {
+        console.error('Error decoding pool data:', error);
+      }
     },
     {
       commitment: 'confirmed',
