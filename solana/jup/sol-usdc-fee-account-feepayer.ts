@@ -9,7 +9,7 @@ import {
   TransactionInstruction,
   AddressLookupTableAccount,
 } from '@solana/web3.js';
-import { createJupiterApiClient, SwapRequestPrioritizationFeeLamports, Instruction as JupInstruction } from '@luce-hq/jup-api';
+import { createJupiterApiClient, SwapRequestPrioritizationFeeLamports } from '@sola-hq/jup-api';
 import bs58 from 'bs58';
 import nacl from 'tweetnacl';
 import BigNumber from 'bignumber.js';
