@@ -6,6 +6,17 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
+**/.private.key
+**/.private.json
+**/.private.js
+**/*.tar.gz
+**/*.zip
+**/*.tar
+**/*.gz
+**/*.bz2
+**/*.rar
+**/*.7z
+
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
@@ -115,3 +126,5 @@ dist
 private.js
 *.rs.bk
 *.bk
+
+*.zip
