@@ -1,0 +1,19 @@
+facebook:
+  label: Facebook
+  permalink: /facebook
+  description: Facebook tag description
+
+bitcoin:
+  label: bitcoin
+  permalink: /bitcoin
+  description: Bitcoin tag description
+
+bech32:
+  label: bech32
+  permalink: /bech32
+  description: Bech32 tag description
+
+docusaurus:
+  label: Docusaurus
+  permalink: /docusaurus
+  description: Docusaurus tag description
