@@ -30,7 +30,7 @@ function getSha3ForConfirmationTx(prefix, toAddress, quantity, data, expireTime,
   console.log(arguments);
   return ABI.soliditySHA3(
     ['string', 'address', 'uint', 'string', 'uint', 'uint'], // argTypes
-    [prefix, new BN(toAddress.replace('0x', ''), 16), quantity, data, expireTime, sequenceId]
+    [prefix, new BN(toAddress.replace('0x', ''), 16), quantity, data, expireTime, sequenceId],
   );
 }
 
@@ -49,7 +49,7 @@ async function main({ web3, from, to, quantity, common, proposerPrivateKey, send
     quantity,
     '',
     expireTime, //
-    sequenceId
+    sequenceId,
   );
 
   const sig = util.ecsign(operationHash, proposerPrivateKey);
@@ -99,12 +99,12 @@ const quantity = new BigNumber(0.0001).shiftedBy(18).toString();
 const sender = '0x370BA1dc25C07d0C77Ba9b83fcc75Fcc2a0aC243';
 const senderPrivateKey = Buffer.from(
   SENDER_PRIVATE_KEY, // sender private key
-  'hex'
+  'hex',
 );
 
 const proposerPrivateKey = Buffer.from(
   PROPOSER_PRIVATE_KEY, // proposer private key
-  'hex'
+  'hex',
 );
 
 main({

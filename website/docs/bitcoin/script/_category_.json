@@ -1,0 +1,8 @@
+{
+  "label": "脚本系统",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "比特币脚本编程语言，包括编译、反编译和脚本分类。"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "label": "账户管理",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "以太坊账户创建、管理和钱包集成指南。"
+  }
+}

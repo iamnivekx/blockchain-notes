@@ -1,6 +1,6 @@
-const createHash = require('create-hash');
+import { createHash } from 'create-hash';
 
-exports.ripemd160 = function ripemd160(buffer) {
+export function ripemd160(buffer: Buffer) {
   try {
     return createHash('ripemd160').update(buffer).digest();
   } catch (err) {
@@ -8,11 +8,11 @@ exports.ripemd160 = function ripemd160(buffer) {
   }
 };
 
-function sha256(buffer) {
+export function sha256(buffer: Buffer) {
   return createHash('sha256').update(buffer).digest();
 }
-exports.sha256 = sha256;
 
-exports.sha256x2 = function sha256x2(buffer) {
+
+export function sha256x2(buffer: Buffer) {
   return sha256(sha256(buffer));
 };

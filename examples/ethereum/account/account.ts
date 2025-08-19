@@ -4,7 +4,7 @@ import 'dotenv/config';
 
 const ec = new EC('secp256k1');
 const { PRIVATE_KEY } = process.env;
-const privateKey = Buffer.from(PRIVATE_KEY, 'hex');
+const privateKey = Buffer.from(PRIVATE_KEY!, 'hex');
 
 const publicKey = privateToPublic(privateKey);
 const address = privateToAddress(privateKey);

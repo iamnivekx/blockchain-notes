@@ -68,8 +68,8 @@ async function main() {
 	const senderNonce = await provider.getTransactionCount(sender);
 
 	const block = await provider.getBlock('pending');
-	const baseFeePerGas = block['baseFeePerGas'];
-	const maxFeePerGas = baseFeePerGas.add(maxPriorityFeePerGas).toHexString();
+	const baseFeePerGas = block.baseFeePerGas!;
+	const maxFeePerGas = baseFeePerGas.add(maxPriorityFeePerGas!).toHexString();
 	const transaction = {
 		chainId,
 		...request,
@@ -97,7 +97,7 @@ async function main() {
 	const serializedTransaction = utils.serializeTransaction(unsignedTransaction, signature);
 	const TransactionHash = utils.keccak256(serializedTransaction);
 	console.log('TransactionHash : ', TransactionHash);
-	// return;
+
 	const { hash } = await provider.sendTransaction(serializedTransaction);
 	console.log('hash : ', hash);
 	return;

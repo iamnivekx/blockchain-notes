@@ -13,6 +13,46 @@ bech32:
   permalink: /bech32
   description: Bech32 tag description
 
+ethereum:
+  label: ethereum
+  permalink: /ethereum
+  description: Ethereum blockchain development and smart contracts
+
+eip1559:
+  label: eip1559
+  permalink: /eip1559
+  description: EIP-1559 transaction format and gas fee optimization
+
+smart-contract:
+  label: smart-contract
+  permalink: /smart-contract
+  description: Ethereum smart contract development and deployment
+
+multisig:
+  label: multisig
+  permalink: /multisig
+  description: Multi-signature wallets and Gnosis Safe integration
+
+script:
+  label: script
+  permalink: /script
+  description: Bitcoin script programming language and operations
+
+base58:
+  label: base58
+  permalink: /base58
+  description: Base58 encoding for Bitcoin addresses
+
+psbt:
+  label: psbt
+  permalink: /psbt
+  description: Partially Signed Bitcoin Transactions
+
+utxo:
+  label: utxo
+  permalink: /utxo
+  description: Unspent Transaction Output model
+
 docusaurus:
   label: Docusaurus
   permalink: /docusaurus
