@@ -57,6 +57,28 @@ function BlockchainFeatures() {
       link: '/solana/intro',
     },
     {
+      title: 'Polkadot生态',
+      description: '账户管理、交易签名、多重签名',
+      iconType: 'svg',
+      iconSvg: `<svg viewBox="0 0 397.7 311.7" style="width: 2rem; height: 2rem;">
+        <path fill="#00FFA3" d="M64.6,237.9c2.4-2.4,5.7-3.8,9.2-3.8h317.4c5.8,0,8.7,7,4.6,11.1l-62.7,62.7c-2.4,2.4-5.7,3.8-9.2,3.8H6.5c-5.8,0-8.7-7-4.6-11.1L64.6,237.9z"/>
+        <path fill="#DC1FFF" d="M64.6,3.8C67.1,1.4,70.4,0,73.8,0h317.4c5.8,0,8.7,7,4.6,11.1l-62.7,62.7c-2.4,2.4-5.7,3.8-9.2,3.8H6.5c-5.8,0-8.7-7-4.6-11.1L64.6,3.8z"/>
+        <path fill="#00FFA3" d="M333.1,120.1c-2.4-2.4-5.7-3.8-9.2-3.8H6.5c-5.8,0-8.7,7-4.6,11.1l62.7,62.7c2.4,2.4,5.7,3.8,9.2,3.8h317.4c5.8,0,8.7-7,4.6-11.1L333.1,120.1z"/>
+      </svg>`,
+      link: '/polkadot/intro',
+    },
+    {
+      title: 'Cosmos生态',
+      description: '账户管理、交易签名、多重签名',
+      iconType: 'svg',
+      iconSvg: `<svg viewBox="0 0 397.7 311.7" style="width: 2rem; height: 2rem;">
+        <path fill="#00FFA3" d="M64.6,237.9c2.4-2.4,5.7-3.8,9.2-3.8h317.4c5.8,0,8.7,7,4.6,11.1l-62.7,62.7c-2.4,2.4-5.7,3.8-9.2,3.8H6.5c-5.8,0-8.7-7-4.6-11.1L64.6,237.9z"/>
+        <path fill="#DC1FFF" d="M64.6,3.8C67.1,1.4,70.4,0,73.8,0h317.4c5.8,0,8.7,7,4.6,11.1l-62.7,62.7c-2.4,2.4-5.7,3.8-9.2,3.8H6.5c-5.8,0-8.7-7-4.6-11.1L64.6,3.8z"/>
+        <path fill="#00FFA3" d="M333.1,120.1c-2.4-2.4-5.7-3.8-9.2-3.8H6.5c-5.8,0-8.7,7-4.6,11.1l62.7,62.7c2.4,2.4,5.7,3.8,9.2,3.8h317.4c5.8,0,8.7-7,4.6-11.1L333.1,120.1z"/>
+      </svg>`,
+      link: '/cosmos/intro',
+    },
+    {
       title: 'Aptos生态',
       description: '智能合约、账户管理、交易签名、多签名安全',
       icon: '🔥',
@@ -64,11 +86,11 @@ function BlockchainFeatures() {
       color: '#000000',
     },
     {
-      title: 'Cardano 生态',
-      description: '账户管理、交易签名',
-      icon: '🔥',
+      title: '其他公链',
+      description: 'Cardano等',
+      icon: '🌐',
       link: '/cardano/intro',
-      color: '#000000',
+      color: '#8b5cf6',
     },
     {
       title: '跨链技术',
@@ -76,13 +98,6 @@ function BlockchainFeatures() {
       icon: '🔗',
       link: '/cross-chain/anyswap/README',
       color: '#10b981',
-    },
-    {
-      title: '其他公链',
-      description: 'Solana、Polkadot、Cosmos、Cardano等',
-      icon: '🌐',
-      link: '/solana/intro',
-      color: '#8b5cf6',
     },
   ];
 

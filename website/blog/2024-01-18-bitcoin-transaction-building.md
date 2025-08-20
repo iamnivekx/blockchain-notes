@@ -83,8 +83,6 @@ RBF 允许用更高手续费的交易替换未确认的交易。
 2. **第三方 API**: 如 Blockstream、BlockCypher 等
 3. **测试网**: 使用测试网 API 进行开发和测试
 
-参考我们的工具函数：[packages/bitcoin/utils/crypto.ts](https://github.com/your-repo/packages/bitcoin/utils/crypto.ts) 用于交易哈希计算。
-
 ## 完整交易流程示例
 
 ```ts
