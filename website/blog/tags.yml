@@ -23,11 +23,6 @@ eip1559:
   permalink: /eip1559
   description: EIP-1559 transaction format and gas fee optimization
 
-smart-contract:
-  label: smart-contract
-  permalink: /smart-contract
-  description: Ethereum smart contract development and deployment
-
 multisig:
   label: multisig
   permalink: /multisig

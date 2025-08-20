@@ -1,8 +1,23 @@
-const { DirectSecp256k1HdWallet, Registry, makeAuthInfoBytes, encodePubkey, decodePubkey, makeSignDoc, makeSignBytes } = require('@cosmjs/proto-signing');
+const {
+  DirectSecp256k1HdWallet,
+  Registry,
+  makeAuthInfoBytes,
+  encodePubkey,
+  decodePubkey,
+  makeSignDoc,
+  makeSignBytes,
+} = require('@cosmjs/proto-signing');
 const { fromBase64, toBase64, toHex, fromHex } = require('@cosmjs/encoding');
 const { pubkeyType, pubkeyToAddress, encodeSecp256k1Pubkey } = require('@cosmjs/amino');
 const crypto = require('@cosmjs/crypto');
-const { defaultRegistryTypes, SigningStargateClient, StargateClient, Tendermint34Client, buildFeeTable, GasPrice } = require('@cosmjs/stargate');
+const {
+  defaultRegistryTypes,
+  SigningStargateClient,
+  StargateClient,
+  Tendermint34Client,
+  buildFeeTable,
+  GasPrice,
+} = require('@cosmjs/stargate');
 const tx_1 = require('@cosmjs/stargate/build/codec/cosmos/tx/v1beta1/tx');
 const tx_4 = require('@cosmjs/stargate/build/codec/cosmos/tx/v1beta1/tx');
 

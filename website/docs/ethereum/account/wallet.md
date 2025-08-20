@@ -194,5 +194,4 @@ A: 使用`wallet.connect(newProvider)`连接到不同的网络。
 ## 下一步
 
 - [交易构建](../tx/transaction.md) - 学习如何构建和发送交易
-- [智能合约](../smart-contracts/intro.md) - 探索智能合约交互
 - [多重签名](../multisig/safe/gnosis.md) - 了解多重签名钱包

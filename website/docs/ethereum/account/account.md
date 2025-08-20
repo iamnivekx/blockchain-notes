@@ -146,4 +146,3 @@ A: 使用`isValidAddress`函数检查地址格式和校验和。
 
 - [钱包集成](./wallet.md) - 学习如何集成钱包功能
 - [交易构建](../tx/transaction.md) - 了解如何构建和发送交易
-- [智能合约](../smart-contracts/intro.md) - 探索智能合约开发

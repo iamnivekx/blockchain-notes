@@ -8,8 +8,8 @@
 - **[账户创建](./account/account.md)** - 账户生成、密钥管理和地址派生
 - **[余额查询](./account/balance.md)** - 账户余额查询和管理
 
-### 2. SPL代币
-- **[代币转账](./token/transfer.md)** - 代币转账和余额管理
+### 2. SOL/SPL-TOKEN
+- **[SPL代币](./token/spl-token.md)** - SPL代币操作
 - **[SOL转账](./token/send-sol.md)** - 原生SOL代币转账
 
 ### 3. DeFi集成

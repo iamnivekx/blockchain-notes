@@ -1,4 +1,4 @@
-# Solana开发指南
+# Solana 开发指南
 
 欢迎来到Solana开发指南！本指南将帮助你掌握Solana区块链开发的核心概念和实践技能。
 
@@ -17,10 +17,12 @@ Solana是一个高性能的Layer 1区块链平台，专注于可扩展性和低�
 ## 学习路径
 
 ### 1. 账户管理
-- [余额查询](./account/balance.md) - 账户余额查询和管理
+- [账户创建](./account/account.md) - 账户生成和密钥管理
+- [余额查询](./account/balance.md) - 余额查询
 
-### 2. 代币操作
-- [代币转账](./token/transfer.md) - 代币转账和余额管理
+### 2. SOL/SPL-TOKEN
+- [SPL代币](./token/spl-token.md) - SPL代币操作
+- [SOL转账](./token/send-sol.md) - 原生SOL转账
 
 ### 3. DeFi集成
 - [Jupiter聚合器](./defi/jupiter.md) - 去中心化交易聚合
