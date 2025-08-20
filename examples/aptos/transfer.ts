@@ -1,7 +1,7 @@
-const { HexString } = require('aptos');
-const aptos = require('aptos');
-const nacl = require('tweetnacl');
-const assert = require('assert').strict;
+import { HexString } from 'aptos';
+import aptos from 'aptos';
+import nacl from 'tweetnacl';
+import assert from 'assert';
 
 const aptosCoin = '0x1::coin::CoinStore<0x1::aptos_coin::AptosCoin>';
 

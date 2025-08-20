@@ -1,0 +1,8 @@
+{
+  "label": "NFT功能",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Aptos NFT功能指南，包括NFT创建、管理和转账。"
+  }
+}

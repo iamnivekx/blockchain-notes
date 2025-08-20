@@ -1,7 +1,7 @@
-const aptos = require('aptos');
-const assert = require('assert').strict;
-const nacl = require('tweetnacl');
-const { sha3_256 } = require('@noble/hashes/sha3');
+import aptos from 'aptos';
+import assert from 'assert';
+import nacl from 'tweetnacl';
+import { sha3_256 } from '@noble/hashes/sha3';
 
 function pubKeyToAddress(publicKey) {
 	const hash = sha3_256.create();

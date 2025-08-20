@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 // https://github.com/aptos-labs/aptos-core/blob/main/ecosystem/typescript/sdk/examples/typescript/your_coin.ts
 
-const { AptosClient, AptosAccount, CoinClient, TxnBuilderTypes, FaucetClient, HexString } = require("aptos");
+import { AptosClient, AptosAccount, CoinClient, TxnBuilderTypes, FaucetClient, HexString } from "aptos";
 
 const alice = new AptosAccount(HexString.ensure('0x8c9d9e1794ea91cb48c31abcfc54166a818aa542b12de08bb991311c2af7743a').toUint8Array())
 const bob = new AptosAccount()

@@ -3,7 +3,7 @@
 
 /* eslint-disable no-console */
 
-const { AptosClient, AptosAccount, FaucetClient, TokenClient, CoinClient, HexString } = require("aptos");
+import { AptosClient, AptosAccount, FaucetClient, TokenClient, CoinClient, HexString } from "aptos";
 
 const NODE_URL = 'https://fullnode.testnet.aptoslabs.com';
 const FAUCET_URL = 'https://faucet.testnet.aptoslabs.com';

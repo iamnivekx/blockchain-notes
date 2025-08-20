@@ -1,0 +1,8 @@
+{
+  "label": "交易处理",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "Aptos交易处理指南，包括交易构建、签名和提交。"
+  }
+}

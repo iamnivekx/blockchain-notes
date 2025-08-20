@@ -1,4 +1,4 @@
-const { AptosClient, AptosAccount, CoinClient, FaucetClient, HexString } = require("aptos");
+import { AptosClient, AptosAccount, CoinClient, FaucetClient, HexString } from "aptos";
 
 const NODE_URL = 'https://fullnode.testnet.aptoslabs.com';
 const FAUCET_URL = 'https://faucet.testnet.aptoslabs.com';

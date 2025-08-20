@@ -36,15 +36,22 @@ function BlockchainFeatures() {
       title: '比特币开发',
       description: '脚本系统、地址生成、交易构建、多签名钱包',
       icon: '₿',
-      link: '/docs/bitcoin/intro',
+      link: '/bitcoin/intro',
       color: '#f7931a',
     },
     {
       title: '以太坊生态',
       description: '智能合约、账户管理、交易签名、多签名安全',
       icon: 'Ξ',
-      link: '/docs/ethereum/intro',
+      link: '/ethereum/intro',
       color: '#3b82f6',
+    },
+    {
+      title: 'Aptos生态',
+      description: '智能合约、账户管理、交易签名、多签名安全',
+      icon: '🔥',
+      link: '/aptos/intro',
+      color: '#000000',
     },
     {
       title: '跨链技术',
@@ -65,10 +72,6 @@ function BlockchainFeatures() {
   return (
     <section className={styles.features}>
       <div className="container">
-        <div className="text--center margin-bottom--xl">
-          <Heading as="h2">核心技术栈</Heading>
-          <p>覆盖主流区块链平台，提供完整的开发解决方案</p>
-        </div>
         <div className="row">
           {features.map((feature, idx) => (
             <div key={idx} className="col col--3">
