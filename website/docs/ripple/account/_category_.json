@@ -1,0 +1,8 @@
+{
+  "label": "账户管理",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Ripple 账户创建、管理和配置指南，包括地址生成、账户检查和启用。"
+  }
+}

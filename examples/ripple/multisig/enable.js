@@ -38,7 +38,7 @@ async function main() {
     {
       // Expire this transaction if it doesn't execute within ~5 minutes:
       signersCount: 2,
-    }
+    },
   );
   console.log('prepare', preparedTx);
   //   return;

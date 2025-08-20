@@ -79,6 +79,13 @@ function BlockchainFeatures() {
       link: '/cosmos/intro',
     },
     {
+      title: 'Ripple生态',
+      description: '账户管理、交易签名、多签名安全',
+      icon: '🔥',
+      link: '/ripple/intro',
+      color: '#000000',
+    },
+    {
       title: 'Aptos生态',
       description: '智能合约、账户管理、交易签名、多签名安全',
       icon: '🔥',
@@ -87,9 +94,9 @@ function BlockchainFeatures() {
     },
     {
       title: '其他公链',
-      description: 'Cardano等',
+      description: 'Aptos,Cardano等',
       icon: '🌐',
-      link: '/cardano/intro',
+      link: '/aptos/intro',
       color: '#8b5cf6',
     },
     {

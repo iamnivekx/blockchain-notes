@@ -40,7 +40,7 @@ async function main() {
           },
         },
       ],
-    }
+    },
     //     {
     //       // Expire this transaction if it doesn't execute within ~5 minutes:
     //       //       maxFee
@@ -64,7 +64,7 @@ async function main() {
   // const ledgerVersion = await api.getLedgerVersion();
   // const earliestLedgerVersion = ledgerVersion + 1;
 
-  const result = await api.submit(tx_signed);
+  const sresult = await api.submit(tx_signed);
   console.log('Tentative result code:', result.resultCode);
   console.log('Tentative result message:', result.resultMessage);
 
