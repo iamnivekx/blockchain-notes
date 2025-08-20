@@ -95,25 +95,25 @@ function QuickStart() {
     {
       title: '比特币地址生成',
       description: '学习如何生成和验证比特币地址',
-      link: '/docs/bitcoin/address/address',
+      link: '/bitcoin/address',
       difficulty: '初级',
     },
     {
       title: '以太坊多签名钱包',
       description: '使用Gnosis Safe构建安全的多签名钱包',
-      link: '/docs/ethereum/multisig/safe/gnosis',
+      link: '/ethereum/multisig/safe/gnosis',
       difficulty: '中级',
     },
     {
       title: 'Solana程序开发',
       description: '构建Solana区块链上的去中心化应用',
-      link: '/docs/solana/spl-token/account',
+      link: '/solana/spl-token/account',
       difficulty: '中级',
     },
     {
       title: '跨链资产转移',
       description: '实现不同区块链间的资产转移',
-      link: '/docs/cross-chain/anyswap/README',
+      link: '/cross-chain/anyswap/README',
       difficulty: '高级',
     },
   ];
