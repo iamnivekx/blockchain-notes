@@ -508,3 +508,4 @@ A: 可以扩展 `classifyScript` 函数添加新的识别逻辑。
 - [脚本系统](./script.md) - 了解脚本的编译和反编译
 - [交易构建](../tx/bitcoin.md) - 学习如何在交易中使用这些脚本
 - [地址生成](../address/address.md) - 理解脚本与地址的关系
+

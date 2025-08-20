@@ -561,3 +561,4 @@ A: 根据成员角色和安全需求选择合适的权限组合，遵循最小�
 - [Squads V4 GitHub](https://github.com/Squads-Protocol/v4)
 - [Squads V4示例](https://github.com/Squads-Protocol/v4-examples)
 - [Squads V4 SDK](https://github.com/Squads-Protocol/v4)
+
