@@ -232,46 +232,6 @@ const addr2 = '0xdd7862a1d347806c9470ba6e4d13b91b60ba5539a00065090ce8bbc24c4dd37
 console.log('Addresses Equal:', addressesEqual(addr1, addr2)); // true
 ```
 
-## 批量地址处理
-
-### 地址列表验证
-
-```typescript
-function validateAddressList(addresses: string[]): {
-  valid: string[];
-  invalid: { address: string; error: string }[];
-} {
-  const valid: string[] = [];
-  const invalid: { address: string; error: string }[] = [];
-  
-  addresses.forEach(address => {
-    const validation = validateAptosAddress(address);
-    if (validation.isValid) {
-      valid.push(validation.normalizedAddress);
-    } else {
-      invalid.push({
-        address,
-        error: validation.error || 'Unknown error'
-      });
-    }
-  });
-  
-  return { valid, invalid };
-}
-
-// 使用示例
-const addressList = [
-  '0xdd7862a1d347806c9470ba6e4d13b91b60ba5539a00065090ce8bbc24c4dd37a',
-  '0xinvalid',
-  '0x37072fb5c8c60c7a231e6d02ca8f87e20498d03d5df0a728fb4ecf5bdf620b42',
-  'short'
-];
-
-const result = validateAddressList(addressList);
-console.log('Valid Addresses:', result.valid);
-console.log('Invalid Addresses:', result.invalid);
-```
-
 ## 完整示例
 
 ```typescript
@@ -305,16 +265,7 @@ async function addressManagementExample() {
     withoutPrefix,
     withPrefix
   });
-  
-  // 6. 批量地址验证
-  const testAddresses = [
-    address.hex(),
-    '0xinvalid',
-    regeneratedAddress.hex()
-  ];
-  
-  const validationResult = validateAddressList(testAddresses);
-  console.log('Batch Validation:', validationResult);
+
 }
 
 // 运行示例

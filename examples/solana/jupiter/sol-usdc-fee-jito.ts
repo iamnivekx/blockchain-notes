@@ -10,7 +10,7 @@ import {
   VersionedTransaction,
 } from '@solana/web3.js';
 import { randomUUID, randomInt } from 'node:crypto';
-import { createJupiterApiClient, DefaultApi } from '@jup-ag/api';
+import { createJupiterApiClient, type SwapApi } from '@jup-ag/api';
 import { JitoJsonRpcClient } from 'jito-js-rpc';
 import bs58 from 'bs58';
 import 'dotenv/config';
@@ -28,7 +28,7 @@ const USDC_MINT = 'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v'; // USDC mint a
  * @param amount: number
  * @returns
  */
-async function swapWithJito(connection: Connection, jupiter: DefaultApi, keypair: Keypair, amount: number, jitoTipLamports: number) {
+async function swapWithJito(connection: Connection, jupiter: SwapApi, keypair: Keypair, amount: number, jitoTipLamports: number) {
   console.log('userPublicKey  : ', keypair.publicKey.toBase58());
   console.log('amount         : ', amount);
   console.log('jitoTipLamports: ', jitoTipLamports);
@@ -63,7 +63,7 @@ async function swapWithJito(connection: Connection, jupiter: DefaultApi, keypair
 
 async function swapTransactionWithJito(
   connection: Connection,
-  jupiter: DefaultApi,
+  jupiter: SwapApi,
   keypair: Keypair,
   amount: number,
   jitoTipAccount: PublicKey,
@@ -128,7 +128,7 @@ async function swapTransactionWithJito(
  * @param amount: number
  * @returns QuoteResponse
  */
-async function getQuote(client: DefaultApi, amount: number) {
+async function getQuote(client: SwapApi, amount: number) {
   const quoteResponse = await client.quoteGet({
     inputMint: SOL_MINT,
     outputMint: USDC_MINT,
@@ -226,7 +226,6 @@ async function main() {
   console.log('url : ', url);
   const connection = new Connection(url, 'confirmed');
   const jupiter = createJupiterApiClient();
-  // const jito = new JitoJsonRpcClient('https://mainnet.block-engine.jito.wtf/api/v1', randomUUID());
   const jitoTipAccount = await getTipAccount(connection);
   console.log('jitoTipAccount : ', jitoTipAccount);
 
@@ -236,7 +235,7 @@ async function main() {
   console.log('userPublicKey  : ', keypair.publicKey.toBase58());
   console.log('amount         : ', amount);
   console.log('jitoTipLamports: ', jitoTipLamports);
-  return;
+
   // await swapWithJito(connection, jupiter, keypair, amount, jitoTipLamports);
   await swapTransactionWithJito(connection, jupiter, keypair, amount, jitoTipAccount, jitoTipLamports);
 }

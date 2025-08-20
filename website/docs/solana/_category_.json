@@ -1,0 +1,8 @@
+{
+  "label": "Solana",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Solana区块链开发指南，包括账户管理、SPL代币、DeFi集成和智能合约开发。"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "label": "账户管理",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Solana账户管理指南，包括账户创建、密钥管理和地址派生。"
+  }
+}
