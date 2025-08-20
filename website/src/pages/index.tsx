@@ -64,6 +64,13 @@ function BlockchainFeatures() {
       color: '#000000',
     },
     {
+      title: 'Cardano 生态',
+      description: '账户管理、交易签名',
+      icon: '🔥',
+      link: '/cardano/intro',
+      color: '#000000',
+    },
+    {
       title: '跨链技术',
       description: '原子交换、跨链桥接、多链资产管理',
       icon: '🔗',

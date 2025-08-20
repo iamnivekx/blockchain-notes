@@ -89,4 +89,8 @@ function private() {
   console.log('byronAddr', byronAddr.to_base58());
 }
 
-private();
+function main() {
+  private();
+}
+
+main();

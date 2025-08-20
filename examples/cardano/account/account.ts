@@ -53,9 +53,8 @@ var byronAddr = ByronAddress.icarus_from_key(
   NetworkInfo.mainnet().protocol_magic()
 );
 console.log('byronAddr     : ', byronAddr.to_base58());
-return;
+
 // ---
-// var pub = Buffer.from('8d325e1895be9a8c20773e974b16cf6216accd9e398946a49a110d7f2f114556', 'hex');
 var priv = PrivateKey.generate_ed25519();
 console.log('priv_hex      :', u8aToHex(priv.as_bytes()));
 var pub = priv.to_public();
