@@ -5,7 +5,6 @@ const { createKeyMulti, encodeAddress, sortAddresses, encodeMultiAddress } = req
 const { alice, aaron, phcc, provider } = require('../../private');
 
 async function send() {
-
   const wsProvider = new WsProvider(provider);
   const api = await ApiPromise.create({ provider: wsProvider, types: cloverTypes });
 
@@ -41,12 +40,18 @@ async function send() {
   // const TIME_POINT = info.unwrap().when;
 
   // 6. approveAsMulti
-  const txHash = await api.tx.multisig.approveAsMulti(THRESHOLD, otherSignatories, TIME_POINT, call.method.hash, MAX_WEIGHT).signAndSend(alice);
+  const txHash = await api.tx.multisig
+    .approveAsMulti(THRESHOLD, otherSignatories, TIME_POINT, call.method.hash, MAX_WEIGHT)
+    .signAndSend(alice);
   console.log(`depositBase   : ${depositBase}`);
   console.log(`depositFactor : ${depositFactor}`);
   console.log(`Sending ${displayAmount} from ${alice.address} to ${MULTISIG}`);
   console.log(`Required values  : approveAsMulti(THRESHOLD, otherSignatories, TIME_POINT, call.method.hash, MAX_WEIGHT)`);
-  console.log(`Submitted values : approveAsMulti(${THRESHOLD}, otherSignatories: ${JSON.stringify(otherSignatories, null, 2)}, ${TIME_POINT}, ${call.method.hash}, ${MAX_WEIGHT})\n`);
+  console.log(
+    `Submitted values : approveAsMulti(${THRESHOLD}, otherSignatories: ${JSON.stringify(otherSignatories, null, 2)}, ${TIME_POINT}, ${
+      call.method.hash
+    }, ${MAX_WEIGHT})\n`,
+  );
   console.log(`approveAsMulti tx: https://clover-testnet.subscan.io/extrinsic/${txHash}`);
 }
 

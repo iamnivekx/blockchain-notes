@@ -1,0 +1,8 @@
+{
+  "label": "多重签名",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Polkadot 多重签名功能指南，包括账户创建、交易处理、质押额外代币、质押提名验证人、提名验证人和功能启用。"
+  }
+}

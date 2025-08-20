@@ -20,10 +20,7 @@ async function main() {
   const SS58PREFIX = 42;
   const THRESHOLD = 2;
   const MAX_WEIGHT = 640000000;
-  const targets = [
-    //"5FNQoCoibJMAyqC77og9tSbhGUtaVt51SD7GdCxmMeWxPBvX", //
-    "5CqWfdrRGdZe6bwxZMiHfdcNAVePjkUJpSh2rpKgcNWciTFP"
-  ];
+  const MAX_ADDITIONAL = new BigNumber(0.1).shiftedBy(18).toString();
 
   const displayAmount = formatBalance(MAX_ADDITIONAL, { forceUnit: 'clv', withSi: true });
   const depositBase = api.consts.multisig.depositBase;
@@ -42,7 +39,7 @@ async function main() {
   const MULTISIG = encodeMultiAddress(addresses, THRESHOLD, SS58PREFIX);
   const otherSignatories = sortAddresses(
     addresses.filter((who) => who !== signer.address),
-    SS58PREFIX
+    SS58PREFIX,
   );
 
   console.log('MULTISIG     : ', MULTISIG);
@@ -56,7 +53,7 @@ async function main() {
   console.log(frozen.toHuman());
 
   // 4. API calls - info is necessary for the timepoint
-  const call = api.tx.staking.nominate(targets)
+  const call = api.tx.staking.unbond(MAX_ADDITIONAL);
   const call_method_hash = call.method.hash;
   const call_method_hex = call.method.toHex();
   console.log('call method hash : ', u8aToHex(call_method_hash));
@@ -83,7 +80,7 @@ async function main() {
     otherSignatories, //
     TIME_POINT,
     call_method_hash,
-    MAX_WEIGHT
+    MAX_WEIGHT,
   );
 
   const { nonce } = await api.query.system.account(signer.address);
@@ -114,7 +111,8 @@ async function main() {
   });
 
   console.log('sender : ', signer.address);
-  const placeholder = '0x020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001';
+  const placeholder =
+    '0x020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001';
   tx.addSignature(signer.address, placeholder, payload.toPayload());
 
   // const { signature } = api.createType('ExtrinsicPayload', payload.toPayload(), { version: api.extrinsicVersion }).sign(signer);
@@ -135,7 +133,6 @@ async function main() {
 
   console.log('extrinsicHex', extrinsicHex);
 
-
   const txHash = await api.rpc.author.submitExtrinsic(extrinsicHex);
   console.log(`txHash :  ${txHash}`);
 
@@ -144,7 +141,11 @@ async function main() {
   console.log(`Signer address   : ${signer.address}`);
   console.log(`Sending ${displayAmount} from ${dest.address} to ${MULTISIG}`);
   console.log(`Required values  : approveAsMulti(THRESHOLD, otherSignatories, TIME_POINT, call.method.hash, MAX_WEIGHT)`);
-  console.log(`Submitted values : approveAsMulti(${THRESHOLD}, otherSignatories: ${JSON.stringify(otherSignatories, null, 2)}, ${TIME_POINT}, ${call.method.hash}, ${MAX_WEIGHT})\n`);
+  console.log(
+    `Submitted values : approveAsMulti(${THRESHOLD}, otherSignatories: ${JSON.stringify(otherSignatories, null, 2)}, ${TIME_POINT}, ${
+      call.method.hash
+    }, ${MAX_WEIGHT})\n`,
+  );
   console.log(`approveAsMulti tx: https://clover-testnet.subscan.io/extrinsic/${txHash}`);
 }
 

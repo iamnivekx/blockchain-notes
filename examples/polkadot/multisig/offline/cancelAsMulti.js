@@ -18,7 +18,7 @@ async function main() {
   // 2. Define relevant constants
   const ss58Format = 42;
   const THRESHOLD = 2;
-  const AMOUNT_TO_SEND = new BigNumber(0.1).shiftedBy(18).toString();;
+  const AMOUNT_TO_SEND = new BigNumber(0.1).shiftedBy(18).toString();
   const displayAmount = formatBalance(AMOUNT_TO_SEND);
 
   // 3. Initialize accounts
@@ -36,7 +36,7 @@ async function main() {
   const MULTISIG = encodeMultiAddress(addresses, THRESHOLD, ss58Format);
   const otherSignatories = sortAddresses(
     addresses.filter((who) => who !== signer.address),
-    ss58Format
+    ss58Format,
   );
   console.log('MULTISIG  : ', MULTISIG);
 
@@ -47,8 +47,8 @@ async function main() {
   console.log('call method hash : ', u8aToHex(call_method_hash));
   console.log('call method hash : ', call_method_hash.toHex());
   console.log('call method hex  : ', call_method_hex);
-  var call_method_hash = "0x851f64282d0567109a3cd1271eda7b8d8de1ba3a8f8458e53a64d1a19b196b42";
-  var call_method_hex = "0x09011300008a5d78456301";
+  var call_method_hash = '0x851f64282d0567109a3cd1271eda7b8d8de1ba3a8f8458e53a64d1a19b196b42';
+  var call_method_hex = '0x09011300008a5d78456301';
 
   // 5. Retrieve and unwrap the timepoint
   const info = await api.query.multisig.multisigs(MULTISIG, call_method_hash);
@@ -57,13 +57,13 @@ async function main() {
   }
   const TIME_POINT = info.unwrap().when;
   console.log('TIME_POINT    : ', TIME_POINT.toString());
-  return;
+
   // 6. Cancel asMulti transaction
   const tx = api.tx.multisig.cancelAsMulti(
     THRESHOLD,
     otherSignatories,
     TIME_POINT,
-    call_method_hash //
+    call_method_hash, //
   );
 
   // const tx_hash = await tx.signAndSend(signer);
@@ -91,7 +91,8 @@ async function main() {
     ...options,
   });
 
-  const placeholder = '0x020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001';
+  const placeholder =
+    '0x020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001';
   tx.addSignature(signer.address, placeholder, payload.toPayload());
 
   const serialized = tx.toHex();
@@ -116,7 +117,11 @@ async function main() {
   console.log(`Sending ${displayAmount} from ${MULTISIG} to ${alice.address}`);
   console.log(`Signer address   : ${signer.address}`);
   console.log(`Required values  : cancelAsMulti(THRESHOLD, otherSignatories, TIME_POINT, call.method.hash)`);
-  console.log(`Submitted values : cancelAsMulti(${THRESHOLD}, otherSignatories: ${JSON.stringify(otherSignatories, null, 2)}, ${TIME_POINT}, ${call.method.hash})\n`);
+  console.log(
+    `Submitted values : cancelAsMulti(${THRESHOLD}, otherSignatories: ${JSON.stringify(otherSignatories, null, 2)}, ${TIME_POINT}, ${
+      call.method.hash
+    })\n`,
+  );
   console.log(`cancelAsMulti tx : https://clover-testnet.subscan.io/extrinsic/${txHash}`);
 }
 

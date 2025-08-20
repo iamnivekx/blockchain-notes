@@ -1,0 +1,8 @@
+{
+  "label": "账户管理",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Polkadot 账户创建、管理和密钥管理指南，包括助记词生成、密钥环配置和地址验证。"
+  }
+}

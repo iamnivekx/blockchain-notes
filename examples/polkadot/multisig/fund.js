@@ -31,7 +31,7 @@ async function main() {
   const MULTISIG = encodeMultiAddress(addresses, THRESHOLD, SS58PREFIX);
   console.log(`Multisig Address: ${MULTISIG}\n`);
 
-  // 4. Send 2 WND to multisig account
+  // 4. Send 2 CLV to multisig account
   const txHash = await api.tx.balances.transfer(MULTISIG, AMOUNT_TO_SEND).signAndSend(alice);
   console.log(`Sending ${displayAmount} from ${alice.address} to ${MULTISIG}`);
   console.log(`transfer tx: https://clover-testnet.subscan.io/extrinsic/${txHash}`);

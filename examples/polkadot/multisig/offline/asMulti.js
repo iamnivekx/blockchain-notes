@@ -20,7 +20,7 @@ async function main() {
   const ss58Format = 42;
   const THRESHOLD = 2;
   const MAX_WEIGHT = 640000000;
-  const AMOUNT_TO_SEND = new BigNumber(0.1).shiftedBy(18).toString();;
+  const AMOUNT_TO_SEND = new BigNumber(0.1).shiftedBy(18).toString();
   const STORE_CALL = false;
   const displayAmount = formatBalance(AMOUNT_TO_SEND);
 
@@ -37,7 +37,7 @@ async function main() {
   const MULTISIG = encodeMultiAddress(addresses, THRESHOLD, ss58Format);
   const otherSignatories = sortAddresses(
     addresses.filter((who) => who !== signer.address),
-    ss58Format
+    ss58Format,
   );
   console.log('MULTISIG  : ', MULTISIG);
 
@@ -49,7 +49,7 @@ async function main() {
   console.log('call method hex  : ', call_method_hex);
 
   var call_method_hash = '0x851f64282d0567109a3cd1271eda7b8d8de1ba3a8f8458e53a64d1a19b196b42';
-  var call_method_hex = '0x09011300008a5d78456301'
+  var call_method_hex = '0x09011300008a5d78456301';
   const maxWeight = await call.paymentInfo(signer.address);
   console.log('maxWeight', maxWeight);
 
@@ -73,7 +73,7 @@ async function main() {
     TIME_POINT,
     call_method_hex,
     STORE_CALL,
-    MAX_WEIGHT //
+    MAX_WEIGHT, //
   );
   return;
   const { weight } = await tx.paymentInfo(signer.address);
@@ -91,7 +91,8 @@ async function main() {
     address: signer.address,
   });
 
-  const placeholder = '0x020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001';
+  const placeholder =
+    '0x020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001';
   tx.addSignature(signer.address, placeholder, payload.toPayload());
 
   const serialized = tx.toHex();
@@ -119,7 +120,13 @@ async function main() {
   console.log(`Sending ${displayAmount} from ${MULTISIG} to ${dest.address}`);
   console.log(`Signer address   : ${signer.address}`);
   console.log(`Required values  : asMulti(THRESHOLD, otherSignatories, TIME_POINT, call.method.hash, MAX_WEIGHT)`);
-  console.log(`Submitted values : asMulti(${THRESHOLD}, otherSignatories: ${JSON.stringify(otherSignatories, null, 2)}, ${TIME_POINT}, ${call_method_hash}, ${MAX_WEIGHT})\n`);
+  console.log(
+    `Submitted values : asMulti(${THRESHOLD}, otherSignatories: ${JSON.stringify(
+      otherSignatories,
+      null,
+      2,
+    )}, ${TIME_POINT}, ${call_method_hash}, ${MAX_WEIGHT})\n`,
+  );
   console.log(`asMulti tx: https://clover-testnet.subscan.io/extrinsic/${txHash}`);
 }
 

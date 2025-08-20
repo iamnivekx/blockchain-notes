@@ -1,9 +1,18 @@
 const { Keyring } = require('@polkadot/api');
-const { cryptoWaitReady, createKeyMulti, encodeAddress, blake2AsU8a, mnemonicGenerate, mnemonicToMiniSecret, mnemonicValidate, secp256k1KeypairFromSeed } = require('@polkadot/util-crypto');
+const {
+  cryptoWaitReady,
+  createKeyMulti,
+  encodeAddress,
+  blake2AsU8a,
+  mnemonicGenerate,
+  mnemonicToMiniSecret,
+  mnemonicValidate,
+  secp256k1KeypairFromSeed,
+} = require('@polkadot/util-crypto');
 const { hexToU8a, u8aToHex } = require('@polkadot/util');
 const { PHRASE, AARON, PHCC, PENG } = process.env;
 
-async function main () {
+async function main() {
   await cryptoWaitReady();
   const mnemonic = mnemonicGenerate();
   console.log(mnemonic);
@@ -25,14 +34,14 @@ async function main () {
   console.log(encodeAddress(blake2AsU8a('0x0273082f8d8e82aced358aa4bcfec5fbe4084fd87ac5f124c7cc326c7044812ebb'), 42));
 }
 
-function createMultiAddress (addresses, threshold, SS58Prefix = 42, expected) {
+function createMultiAddress(addresses, threshold, SS58Prefix = 42, expected) {
   const multiAddress = createKeyMulti(addresses, threshold);
   // Convert byte array to SS58 encoding.
   const Ss58Address = encodeAddress(multiAddress, SS58Prefix);
   return Ss58Address;
 }
 
-function verifyAddresses () {
+function verifyAddresses() {
   verify({
     name: 'alice',
     PHRASE: PHRASE,
@@ -58,7 +67,7 @@ function verifyAddresses () {
   });
 }
 
-function verify ({ name, PHRASE, address }) {
+function verify({ name, PHRASE, address }) {
   const ss58Format = 42;
   const keyring = new Keyring({ ss58Format, type: 'ecdsa' });
 

@@ -1,0 +1,8 @@
+{
+  "label": "Polkadot",
+  "position": 7,
+  "link": {
+    "type": "generated-index",
+    "description": "Polkadot 区块链开发指南，包括账户管理、交易处理、多重签名、批量操作和质押功能。"
+  }
+}

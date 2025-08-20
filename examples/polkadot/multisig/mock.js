@@ -1,23 +1,16 @@
 const cloverTypes = require('@clover-network/node-types');
+const { setTimeout } = require('timers/promises');
 const { ApiPromise, WsProvider, Keyring } = require('@polkadot/api');
 const { formatBalance, u8aToHex, hexToU8a } = require('@polkadot/util');
 const { sortAddresses, encodeMultiAddress } = require('@polkadot/util-crypto');
 const BN = require('bn.js');
-
-const sleep = async (ns) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve();
-    }, ns);
-  });
-};
 
 async function main() {
   // await cryptoWaitReady();
   const wsProvider = new WsProvider('wss://api.clover.finance');
   const api = await ApiPromise.create({ provider: wsProvider, types: cloverTypes });
 
-  await sleep(1000 * 1);
+  await setTimeout(1000 * 1);
 
   const PHRASE = 'pledge suit pyramid apple satisfy same sponsor search involve hello crystal grief';
 
@@ -57,7 +50,7 @@ async function main() {
   const MULTISIG = encodeMultiAddress(addresses, THRESHOLD, SS58PREFIX);
   const otherSignatories = sortAddresses(
     addresses.filter((who) => who !== signer.address),
-    SS58PREFIX
+    SS58PREFIX,
   );
   console.log('MULTISIG  : ', MULTISIG);
 
@@ -81,12 +74,12 @@ async function main() {
   console.log('TIME_POINT    : ', TIME_POINT);
 
   // 6. approveAsMulti
-  const tx = await api.tx.multisig.approveAsMulti(
+  const tx = api.tx.multisig.approveAsMulti(
     THRESHOLD,
     otherSignatories, //
     TIME_POINT,
     call_hash,
-    MAX_WEIGHT
+    MAX_WEIGHT,
   );
 
   // .signAndSend(signer);
@@ -127,7 +120,11 @@ async function main() {
   });
 
   // const { signature } = api.createType('ExtrinsicPayload', payload.toPayload(), { version: api.extrinsicVersion }).sign(signer);
-  tx.addSignature(signer.address, '0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001', payload.toPayload());
+  tx.addSignature(
+    signer.address,
+    '0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001',
+    payload.toPayload(),
+  );
 
   // tx.addSignature(signer.address, signature, payload.toPayload());
 
@@ -139,7 +136,8 @@ async function main() {
   const signature = u8aToHex(signer.sign(hexToU8a(payload.toRaw().data), { withType: true }));
   console.log('signature', signature.length);
 
-  const placeholder = '0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001';
+  const placeholder =
+    '0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001';
   const hex = serialized.replace(placeholder, signature.toString().slice(2));
   console.log('hex', hex);
   const extrinsic = api.createType('Extrinsic', hex);
@@ -153,7 +151,11 @@ async function main() {
   console.log(`Signer address   : ${signer.address}`);
   console.log(`Sending ${displayAmount} from ${dest.address} to ${MULTISIG}`);
   console.log(`Required values  : approveAsMulti(THRESHOLD, otherSignatories, TIME_POINT, call.method.hash, MAX_WEIGHT)`);
-  console.log(`Submitted values : approveAsMulti(${THRESHOLD}, otherSignatories: ${JSON.stringify(otherSignatories, null, 2)}, ${TIME_POINT}, ${call.method.hash}, ${MAX_WEIGHT})\n`);
+  console.log(
+    `Submitted values : approveAsMulti(${THRESHOLD}, otherSignatories: ${JSON.stringify(otherSignatories, null, 2)}, ${TIME_POINT}, ${
+      call.method.hash
+    }, ${MAX_WEIGHT})\n`,
+  );
   console.log(`approveAsMulti tx: https://clover-testnet.subscan.io/extrinsic/${txHash}`);
 }
 
