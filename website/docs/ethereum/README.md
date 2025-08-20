@@ -109,12 +109,12 @@ console.log('Transaction confirmed:', tx.hash);
 如果你遇到问题或需要帮助：
 
 - 查看 [常见问题](./FAQ.md)
-- 提交 [Issue](../../issues)
+- 提交 [Issue](https://github.com/iamnivekx/blockchain-notes/issues)
 - 加入 [Discord](https://discord.gg/ethereum)
 
 ## 📄 许可证
 
-本项目采用 MIT 许可证 - 查看 [LICENSE](../../LICENSE) 文件了解详情。
+本项目采用 MIT 许可证 - 查看 [LICENSE](https://github.com/iamnivekx/blockchain-notes/blob/main/LICENSE) 文件了解详情。
 
 ---
 

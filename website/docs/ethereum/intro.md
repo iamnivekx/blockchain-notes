@@ -33,8 +33,8 @@
 - [Safe操作](./multisig/safe/helper.md)
 
 ### 4. 区块链交互
-- [节点连接](./blockchain/README.md)
-- [区块数据](./blockchain/README.md)
+- [节点连接](./blockchain/)
+- [区块数据](./blockchain/)
 
 ## 开发工具
 
