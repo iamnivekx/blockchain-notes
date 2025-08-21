@@ -1,0 +1,8 @@
+{
+  "label": "账户管理",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "学习如何在 Avalanche 上创建和管理账户，包括密钥生成、地址管理和安全最佳实践。"
+  }
+}

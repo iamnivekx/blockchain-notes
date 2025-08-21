@@ -6,7 +6,8 @@ var m = mnemonic.generateMnemonic(strength);
 // juice garden awake mask festival blanket benefit pelican mimic stuff clay edge ten view easy hungry buffalo become exclude salon bamboo inflict fault tiny
 // console.log(m);
 
-var m = 'juice garden awake mask festival blanket benefit pelican mimic stuff clay edge ten view easy hungry buffalo become exclude salon bamboo inflict fault tiny';
+var m =
+  'juice garden awake mask festival blanket benefit pelican mimic stuff clay edge ten view easy hungry buffalo become exclude salon bamboo inflict fault tiny';
 const { HDNode, Avalanche } = require('avalanche');
 const seed = mnemonic.mnemonicToSeedSync(m);
 const hdnode = new HDNode(seed);

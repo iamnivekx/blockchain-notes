@@ -19,11 +19,18 @@ async function main() {
   var pub_hex = keyPair.getPublicKey().toString('hex');
   var kp = new avm.KeyPair(xKeychain.hrp, xKeychain.chainid);
   var msg = Buffer.from('bcb6939718ab7a46f389c36262194ce34111ea88810a6ead8b00379a36215c26', 'hex');
-  var kpPub = kp.recover(msg, Buffer.from('09aadf7d86b8c61b2473c940d43731f2155d5670acd08559720ff0dc720c6a5e6410cb68bd683d4a7cc31099439122695b265b9879726b66bf78178689bbe55101', 'hex'));
+  var kpPub = kp.recover(
+    msg,
+    Buffer.from(
+      '09aadf7d86b8c61b2473c940d43731f2155d5670acd08559720ff0dc720c6a5e6410cb68bd683d4a7cc31099439122695b265b9879726b66bf78178689bbe55101',
+      'hex',
+    ),
+  );
   console.log('kpPub    : ', kpPub.toString('hex'));
   console.log('pub  hex : ', pub_hex);
 
-  const rawCb58 = '111111111AvZUPL21jGdPvACdqwf4vSzVVEJvwwGpp7KFqw5H7C53LJLGYZxkLFFXDVykZMnUuM7kHMHr1L8QkPTTcojbc8FKQouSkFFhbh8hWye6kq415u4gJ2kq3h1W3BHSFiNzmnRWG7ZaUQadPNJpcYAehY3GHzJcGeFaBuBznSvopnLfr2kdbWf8aaJoDZVcvTGXJZz6GEjY5UzmfdgfcVZwExV4EyEEmg5Ma5MB2pQ73p8VyfZEVVMrxNyCJHEa7JYg8koTLKFqDMFCDX1cskvs8hMoy78osj2P3i9frsvkxwmMGEpCP1cp2uEpz5Uwse8vWhTLvYQ5ekYD9cG5MitUbEh2hi7LfZgEsttBhAYQT3zcyGwzpBk8Cyf5TxbPW6vJwMNtDekdrmve9Leae';
+  const rawCb58 =
+    '111111111AvZUPL21jGdPvACdqwf4vSzVVEJvwwGpp7KFqw5H7C53LJLGYZxkLFFXDVykZMnUuM7kHMHr1L8QkPTTcojbc8FKQouSkFFhbh8hWye6kq415u4gJ2kq3h1W3BHSFiNzmnRWG7ZaUQadPNJpcYAehY3GHzJcGeFaBuBznSvopnLfr2kdbWf8aaJoDZVcvTGXJZz6GEjY5UzmfdgfcVZwExV4EyEEmg5Ma5MB2pQ73p8VyfZEVVMrxNyCJHEa7JYg8koTLKFqDMFCDX1cskvs8hMoy78osj2P3i9frsvkxwmMGEpCP1cp2uEpz5Uwse8vWhTLvYQ5ekYD9cG5MitUbEh2hi7LfZgEsttBhAYQT3zcyGwzpBk8Cyf5TxbPW6vJwMNtDekdrmve9Leae';
   const rawHex =
     '00000000000000000005ab68eb1ee142a05cfe768c36e11f0b596db5a3c6c77aabe665dad9e638ca94f7000000013d9bdac0ed1d761330cf680efdeb1a42159eb387d6d2950c96f7d28f61bbe2aa000000070000000076e948c00000000000000000000000010000000174d0618dd3d6a8b39b602c4556d9e43ce792f2b500000001c74f28c8abbe0a4f656eab6a70980d7bd8849ed53972cfb75dd461b7e8d15f18000000003d9bdac0ed1d761330cf680efdeb1a42159eb387d6d2950c96f7d28f61bbe2aa000000050000000076f88b0000000001000000000000000000000001000000090000000109aadf7d86b8c61b2473c940d43731f2155d5670acd08559720ff0dc720c6a5e6410cb68bd683d4a7cc31099439122695b265b9879726b66bf78178689bbe55101';
   console.log('tx cb58: ', serialization.bufferToType(Buffer.from(rawHex, 'hex'), 'cb58'));

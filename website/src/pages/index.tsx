@@ -86,6 +86,13 @@ function BlockchainFeatures() {
       color: '#000000',
     },
     {
+      title: 'Avalanche生态',
+      description: '高性能区块链、智能合约、账户管理、交易签名',
+      icon: '❄️',
+      link: '/avalanche/intro',
+      color: '#e84142',
+    },
+    {
       title: 'Aptos生态',
       description: '智能合约、账户管理、交易签名、多签名安全',
       icon: '🔥',

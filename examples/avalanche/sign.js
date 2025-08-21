@@ -21,7 +21,8 @@ async function main() {
   console.log('addr     : ', keyPair.getAddressString());
   console.log('addr buf : ', keyPair.getAddress().toString('hex'));
 
-  var expected_signature = '4e9b4279d46e2d1d967a3558210743fde1b51950932dd8cf426ed96790da4f706f41cee97924f47ab160850db4e3b09039afd5053e958486f927822c93c229f101';
+  var expected_signature =
+    '4e9b4279d46e2d1d967a3558210743fde1b51950932dd8cf426ed96790da4f706f41cee97924f47ab160850db4e3b09039afd5053e958486f927822c93c229f101';
   var signature = keyPair.sign(msg);
   console.log('signature   : ', signature.toString('hex'));
   console.log('signature eq: ', signature.toString('hex') === expected_signature);

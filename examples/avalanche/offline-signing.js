@@ -40,7 +40,12 @@ async function main() {
   // var utxos = avmUTXOResponse.utxos;
   const utxos = new UTXOSet();
 
-  utxos.addArray(['119ddmfJNCFrXuKmjs6teNgMeoFuNkzN2ZGBfYWhHUHnmbat8ZxzehjPjNV4P931cxj3iXtNhU4ka4CbmMECBaVT32waJVMVCkBMQbkyBuDBQaQZyceXNwWdovNfVTznZJWGQeDXqSuVhHnwxU6cxBn4mXLi4ST1Jvb5bn'], false);
+  utxos.addArray(
+    [
+      '119ddmfJNCFrXuKmjs6teNgMeoFuNkzN2ZGBfYWhHUHnmbat8ZxzehjPjNV4P931cxj3iXtNhU4ka4CbmMECBaVT32waJVMVCkBMQbkyBuDBQaQZyceXNwWdovNfVTznZJWGQeDXqSuVhHnwxU6cxBn4mXLi4ST1Jvb5bn',
+    ],
+    false,
+  );
 
   const toAddress = ['X-fuji1rz6uxnat4e9l6ygdu9enx3a79xnjzg2z4763w2'];
   const changeAddresses = ['X-fuji1wngxrrwn665t8xmq93z4dk0y8nne9u44adyhac'];
