@@ -190,8 +190,3 @@ A: 如果有助记词备份，可以使用助记词恢复钱包。
 
 ### Q: 如何切换网络？
 A: 使用`wallet.connect(newProvider)`连接到不同的网络。
-
-## 下一步
-
-- [交易构建](../tx/transaction.md) - 学习如何构建和发送交易
-- [多重签名](../multisig/safe/gnosis.md) - 了解多重签名钱包
