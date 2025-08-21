@@ -34,8 +34,8 @@ const config: Config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'zh-Hans',
+    locales: ['zh-Hans'],
   },
 
   presets: [
@@ -76,8 +76,7 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/favicon-16x16.png',
     navbar: {
       title: 'Blockchain Notes',
       logo: {
@@ -85,12 +84,7 @@ const config: Config = {
         src: 'img/logo.svg',
       },
       items: [
-        {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'Tutorial',
-        },
+        { to: '/intro', label: 'Docs', position: 'left' },
         { to: '/blog', label: 'Blog', position: 'left' },
         {
           href: 'https://github.com/iamnivekx/blockchain-notes',
@@ -106,7 +100,11 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
+              label: 'Docs',
+              to: '/intro',
+            },
+            {
+              label: 'Blog',
               to: '/blog',
             },
           ],
@@ -115,8 +113,8 @@ const config: Config = {
           title: 'More',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
+              label: 'Twitter',
+              href: 'https://twitter.com/iamnivekx',
             },
             {
               label: 'GitHub',

@@ -8,12 +8,12 @@
   },
   "author": "h499871809@gmail.com",
   "bugs": {
-    "url": "https://github.com/peng-huang-cc/blockchain-notes/issues"
+    "url": "https://iamnivekx.github.com/blockchain-notes/issues"
   },
-  "homepage": "https://github.com/peng-huang-cc/blockchain-notes#readme",
+  "homepage": "https://iamnivekx.github.com/blockchain-notes#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/peng-huang-cc/blockchain-notes.git"
+    "url": "https://iamnivekx.github.com/blockchain-notes.git"
   },
   "keywords": [
     "avalanche",

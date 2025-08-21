@@ -48,42 +48,30 @@ function BlockchainFeatures() {
     {
       title: 'Solana生态',
       description: '账户管理、交易签名、多签名、事件订阅',
-      iconType: 'svg',
-      iconSvg: `<svg viewBox="0 0 397.7 311.7" style="width: 2rem; height: 2rem;">
-        <path fill="#00FFA3" d="M64.6,237.9c2.4-2.4,5.7-3.8,9.2-3.8h317.4c5.8,0,8.7,7,4.6,11.1l-62.7,62.7c-2.4,2.4-5.7,3.8-9.2,3.8H6.5c-5.8,0-8.7-7-4.6-11.1L64.6,237.9z"/>
-        <path fill="#DC1FFF" d="M64.6,3.8C67.1,1.4,70.4,0,73.8,0h317.4c5.8,0,8.7,7,4.6,11.1l-62.7,62.7c-2.4,2.4-5.7,3.8-9.2,3.8H6.5c-5.8,0-8.7-7-4.6-11.1L64.6,3.8z"/>
-        <path fill="#00FFA3" d="M333.1,120.1c-2.4-2.4-5.7-3.8-9.2-3.8H6.5c-5.8,0-8.7,7-4.6,11.1l62.7,62.7c2.4,2.4,5.7,3.8,9.2,3.8h317.4c5.8,0,8.7-7,4.6-11.1L333.1,120.1z"/>
-      </svg>`,
+      icon: '☀️',
       link: '/solana/intro',
+      color: '#00FFA3',
     },
     {
       title: 'Polkadot生态',
       description: '账户管理、交易签名、多重签名',
-      iconType: 'svg',
-      iconSvg: `<svg viewBox="0 0 397.7 311.7" style="width: 2rem; height: 2rem;">
-        <path fill="#00FFA3" d="M64.6,237.9c2.4-2.4,5.7-3.8,9.2-3.8h317.4c5.8,0,8.7,7,4.6,11.1l-62.7,62.7c-2.4,2.4-5.7,3.8-9.2,3.8H6.5c-5.8,0-8.7-7-4.6-11.1L64.6,237.9z"/>
-        <path fill="#DC1FFF" d="M64.6,3.8C67.1,1.4,70.4,0,73.8,0h317.4c5.8,0,8.7,7,4.6,11.1l-62.7,62.7c-2.4,2.4-5.7,3.8-9.2,3.8H6.5c-5.8,0-8.7-7-4.6-11.1L64.6,3.8z"/>
-        <path fill="#00FFA3" d="M333.1,120.1c-2.4-2.4-5.7-3.8-9.2-3.8H6.5c-5.8,0-8.7,7-4.6,11.1l62.7,62.7c2.4,2.4,5.7,3.8,9.2,3.8h317.4c5.8,0,8.7-7,4.6-11.1L333.1,120.1z"/>
-      </svg>`,
+      icon: '🔴',
       link: '/polkadot/intro',
+      color: '#E6007A',
     },
     {
       title: 'Cosmos生态',
       description: '账户管理、交易签名、多重签名',
-      iconType: 'svg',
-      iconSvg: `<svg viewBox="0 0 397.7 311.7" style="width: 2rem; height: 2rem;">
-        <path fill="#00FFA3" d="M64.6,237.9c2.4-2.4,5.7-3.8,9.2-3.8h317.4c5.8,0,8.7,7,4.6,11.1l-62.7,62.7c-2.4,2.4-5.7,3.8-9.2,3.8H6.5c-5.8,0-8.7-7-4.6-11.1L64.6,237.9z"/>
-        <path fill="#DC1FFF" d="M64.6,3.8C67.1,1.4,70.4,0,73.8,0h317.4c5.8,0,8.7,7,4.6,11.1l-62.7,62.7c-2.4,2.4-5.7,3.8-9.2,3.8H6.5c-5.8,0-8.7-7-4.6-11.1L64.6,3.8z"/>
-        <path fill="#00FFA3" d="M333.1,120.1c-2.4-2.4-5.7-3.8-9.2-3.8H6.5c-5.8,0-8.7,7-4.6,11.1l62.7,62.7c2.4,2.4,5.7,3.8,9.2,3.8h317.4c5.8,0,8.7-7,4.6-11.1L333.1,120.1z"/>
-      </svg>`,
+      icon: '🌌',
       link: '/cosmos/intro',
+      color: '#2E3148',
     },
     {
       title: 'Ripple生态',
       description: '账户管理、交易签名、多签名安全',
-      icon: '🔥',
+      icon: '💧',
       link: '/ripple/intro',
-      color: '#000000',
+      color: '#23292F',
     },
     {
       title: 'Avalanche生态',
@@ -95,22 +83,22 @@ function BlockchainFeatures() {
     {
       title: 'Aptos生态',
       description: '智能合约、账户管理、交易签名、多签名安全',
-      icon: '🔥',
+      icon: '🚀',
       link: '/aptos/intro',
       color: '#000000',
     },
     {
-      title: '其他公链',
-      description: 'Aptos,Cardano等',
-      icon: '🌐',
-      link: '/aptos/intro',
-      color: '#8b5cf6',
+      title: 'Cardano生态',
+      description: '智能合约、账户管理、交易签名、多签名安全',
+      icon: '🔵',
+      link: '/cardano/intro',
+      color: '#0033AD',
     },
     {
       title: '跨链技术',
-      description: '原子交换、跨链桥接、多链资产管理',
+      description: 'AnySwap 桥接协议、ABI 处理、代币授权、USDT/CLV 桥接',
       icon: '🔗',
-      link: '/cross-chain/anyswap/README',
+      link: '/crosschain/anyswap/intro',
       color: '#10b981',
     },
   ];
@@ -175,7 +163,7 @@ function QuickStart() {
     {
       title: '跨链资产转移',
       description: '实现不同区块链间的资产转移',
-      link: '/cross-chain/anyswap/README',
+      link: '/crosschain/anyswap/README',
       difficulty: '高级',
     },
   ];
@@ -218,27 +206,6 @@ function QuickStart() {
   );
 }
 
-function CommunitySection() {
-  return (
-    <section className={styles.community}>
-      <div className="container">
-        <div className="text--center">
-          <Heading as="h2">加入社区</Heading>
-          <p>与其他区块链开发者交流，分享经验和见解</p>
-          <div className={styles.communityButtons}>
-            <Link className="button button--primary" to="/blog">
-              阅读博客文章
-            </Link>
-            <Link className="button button--outline button--secondary" to="https://github.com/iamnivekx/blockchain-notes">
-              GitHub 仓库
-            </Link>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export default function Home(): ReactNode {
   const { siteConfig } = useDocusaurusContext();
   return (
@@ -247,7 +214,6 @@ export default function Home(): ReactNode {
       <main>
         <BlockchainFeatures />
         <QuickStart />
-        <CommunitySection />
       </main>
     </Layout>
   );
