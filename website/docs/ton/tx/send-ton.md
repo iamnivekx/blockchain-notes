@@ -358,9 +358,3 @@ async function sendTransaction() {
 // 使用示例
 sendTransaction().catch(console.error);
 ```
-
-## 🚀 下一步
-
-- 学习 [地址处理](./address.md) 进行地址格式转换
-- 了解 [Jetton 代币](../token/jetton.md) 操作
-- 探索 [账户管理](../account/account.md) 功能
