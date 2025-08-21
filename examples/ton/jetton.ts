@@ -1,5 +1,3 @@
-import assert from 'node:assert/strict';
-
 import { mnemonicToPrivateKey } from '@ton/crypto';
 import {
   Address,
@@ -19,17 +17,16 @@ import {
 } from '@ton/ton';
 
 import 'dotenv/config';
-import { number } from '@noble/hashes/_assert';
 
 export const calculateUsdtAmount = (usdc: number) => BigInt(usdc * 10 ** 6);
 
 // Create Client
 const client = new TonClient({
   // endpoint: 'https://testnet.toncenter.com/api/v2/jsonRPC',
-  // apiKey: '4f96a149e04e0821d20f9e99ee716e20ff52db7238f38663226b1c0f303003e0',
+  // apiKey: process.env.TON_API_KEY,
   // ------------------
   endpoint: 'https://toncenter.com/api/v2/jsonRPC',
-  apiKey: '4f96a149e04e0821d20f9e99ee716e20ff52db7238f38663226b1c0f303003e0',
+  apiKey: process.env.TON_API_KEY,
 });
 
 export interface IBurnBody {

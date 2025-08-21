@@ -1,6 +1,6 @@
 import { Address } from '@ton/core';
 import { TonClient } from '@ton/ton';
-import assert from 'assert';
+import assert from 'node:assert/strict';
 
 const client = new TonClient({
   endpoint: 'https://toncenter.com/api/v2/jsonRPC',
