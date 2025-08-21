@@ -11,6 +11,15 @@ const config: Config = {
   title: 'Blockchain Notes',
   tagline: 'Blockchain Notes',
   favicon: 'img/favicon.ico',
+  headTags: [
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'algolia-site-verification',
+        content: 'A6947CB4CC36D268',
+      },
+    },
+  ],
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -105,7 +114,7 @@ const config: Config = {
   themeConfig: {
     image: 'img/favicon-16x16.png',
     metadata: [
-      { name: 'algolia-site-verification', content: '8EC3DD2479BB15D9' },
+      { name: 'algolia-site-verification', content: 'A6947CB4CC36D268' },
     ],
     navbar: {
       title: 'Blockchain Notes',
@@ -202,9 +211,8 @@ const config: Config = {
     },
     algolia: {
       contextualSearch: true,
-      appId: 'JJZW6V48W2',
-      apiKey: '9e65e0723da0b92f16e78775eae90e1f',
-      // indexName: 'blockchain_notes',
+      appId: 'UBLG1RVVFZ',
+      apiKey: 'bc19b765e456211b26fd01c36604b783',
       indexName: 'blockchain_notes',
       searchParameters: {
         hitsPerPage: 4,
