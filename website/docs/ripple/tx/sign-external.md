@@ -1,5 +1,5 @@
 ---
-id: offline
+id: external-sign
 title: 离线交易
 sidebar_label: 离线交易
 description: Ripple 离线交易创建、签名和处理的完整指南

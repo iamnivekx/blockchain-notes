@@ -624,9 +624,3 @@ function enableDebugMode(transaction) {
   console.log('交易 Hex:', buffer.toString('hex'));
 }
 ```
-
-## 下一步
-
-- [交易构建](./transfer.md) - 学习在线交易构建
-- [交易解码](./decode.md) - 了解如何解码和分析交易
-- [批量操作](./batch.md) - 学习批量交易处理

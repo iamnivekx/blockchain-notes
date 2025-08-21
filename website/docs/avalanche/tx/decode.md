@@ -554,9 +554,3 @@ function diagnoseTransactionError(error) {
   }
 }
 ```
-
-## 下一步
-
-- [批量操作](./batch.md) - 学习批量交易处理
-- [跨链操作](./cross-chain.md) - 了解跨链资产转移
-- [交易监控](./monitoring.md) - 学习交易状态监控

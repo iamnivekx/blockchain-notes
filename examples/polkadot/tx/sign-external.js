@@ -11,13 +11,12 @@ async function getPeriodEra(api, period = 1) {
   const blockHash = block.block.header.hash;
   const era = api.createType('ExtrinsicEra', {
     current: blockNumber,
-    period
+    period,
   });
   return {
     blockHash,
     era,
-  }
-
+  };
 }
 
 // https://wiki.polkadot.network/docs/build-transaction-construction
@@ -64,7 +63,7 @@ async function main() {
     runtimeVersion: api.runtimeVersion,
     version: api.extrinsicVersion,
     // address: signer.address,
-  }
+  };
 
   Object.assign(signerPayloadOptions, periodEra);
 
@@ -97,7 +96,8 @@ async function main() {
   {
     // 1. with a placeholder signature
     // 2.replace the placeholder with the actual signature
-    const placeholder = '0x020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001';
+    const placeholder =
+      '0x020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001';
     tx.addSignature(signer.address, placeholder, signerPayload.toPayload());
     var tmpTxHex = tx.toHex();
 
@@ -114,7 +114,10 @@ async function main() {
   console.log('- extrinsic    : ', extrinsic.toHuman());
   console.log('- extrinsic hex:', extrinsic.toHex());
   console.log('- extrinsic era:', extrinsic.era.toHuman());
-  console.log('- extrinsic period   :', extrinsic.era?.isMortalEra ? extrinsic.era.asMortalEra?.period.toNumber() : extrinsic.era.asImmortalEra);
+  console.log(
+    '- extrinsic period   :',
+    extrinsic.era?.isMortalEra ? extrinsic.era.asMortalEra?.period.toNumber() : extrinsic.era.asImmortalEra,
+  );
 
   console.log('extrinsic', extrinsic.toHex());
 

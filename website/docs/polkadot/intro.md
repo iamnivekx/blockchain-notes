@@ -51,7 +51,7 @@ const account = keyring.addFromMnemonic(mnemonic);
 - [交易构建与签名](./tx/transaction.md) - 创建和发送交易
 - [交易解码](./tx/decode.md) - 解析交易数据和事件
 - [多重签名交易](./tx/multi.md) - 多重签名交易流程
-- [离线交易](./tx/offline.md) - 离线交易处理
+- [离线交易](./tx/sign-external.md) - 离线交易处理
 
 ### 3. 多重签名
 - [多重签名账户创建](./multisig/account.md) - 创建多重签名账户

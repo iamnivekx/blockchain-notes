@@ -46,8 +46,8 @@ console.log('Address:', address);
 - [账户标志](./account/flag.md) - 设置账户标志
 
 ### 2. 交易处理
-- [在线交易](./tx/online.md) - 创建和发送在线交易
-- [离线交易](./tx/offline.md) - 离线交易处理
+- [SDK交易](./tx/sign-sdk.md) - 使用SDK交易创建、签名和提交
+- [离线交易](./tx/sign-external.md) - 使用离线交易处理和签名
 - [HTTP交易](./tx/http.md) - 通过HTTP接口处理
 - [交易编码](./tx/codec.md) - 交易序列化
 
@@ -88,7 +88,7 @@ console.log('Address:', address);
 
 - 查看 [完整开发文档](./README.md)
 - 开始 [地址生成](./account/address.md)
-- 学习 [交易处理](./tx/online.md)
+- 学习 [SDK交易](./tx/sign-sdk.md)
 - 探索 [多重签名](./multisig/account.md)
 
 开始你的 Ripple 开发之旅吧！

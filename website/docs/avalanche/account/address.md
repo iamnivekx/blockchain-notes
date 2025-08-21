@@ -392,9 +392,3 @@ createAvalancheWallet()
     console.error('钱包创建失败:', error);
   });
 ```
-
-## 下一步
-
-- [密钥管理](./key-management.md) - 学习密钥的安全管理
-- [钱包集成](./wallet-integration.md) - 集成到现有钱包系统
-- [多签名账户](./multisig.md) - 创建多签名账户

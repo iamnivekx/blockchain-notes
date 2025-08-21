@@ -1,13 +1,13 @@
 ---
-id: online
-title: 使用私钥交易
-sidebar_label: 使用私钥交易
-description: Ripple 使用私钥交易创建、签名和提交的完整指南
+id: sdk-sign
+title: 使用SDK交易
+sidebar_label: 使用SDK交易
+description: Ripple 使用SDK交易创建、签名和提交的完整指南
 ---
 
-# Ripple 使用私钥交易处理
+# Ripple 使用SDK交易处理
 
-使用私钥交易是 Ripple 网络中最常用的交易方式，直接使用私钥进行交易。
+使用SDK交易是 Ripple 网络中最常用的交易方式，直接使用SDK进行交易。
 
 ## 🚀 快速开始
 

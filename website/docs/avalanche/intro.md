@@ -22,10 +22,10 @@ Avalanche是一个高性能的Layer 1区块链平台，专注于可扩展性和�
 
 ### 2. 交易操作
 - [资产转移](./tx/transfer.md) - AVAX代币转账
-- [交易签名](./tx/sign.md) - 消息签名和验证
-- [离线签名](./tx/offline-signing.md) - 离线交易签名
+- [SDK交易](./tx/sign-sdk.md) - 使用SDK交易创建、签名和提交
+- [离线交易](./tx/sign-external.md) - 使用离线交易处理和签名
 - [高级交易构建](./tx/advanced.md) - 手动构建交易
-- [交易解码](./tx/decode.md) - 交易分析和解码
+- [交易编码](./tx/decode.md) - 交易序列化
 
 ## 开发工具
 

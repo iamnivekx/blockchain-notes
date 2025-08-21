@@ -11,8 +11,8 @@
 - **[账户标志](./account/flag.md)** - 设置账户标志
 
 ### 2. 交易处理
-- **[在线交易](./tx/online.md)** - 在线交易创建、签名和提交
-- **[离线交易](./tx/offline.md)** - 离线交易处理和签名
+- **[SDK交易](./tx/sign-sdk.md)** - 使用SDK交易创建、签名和提交
+- **[离线交易](./tx/sign-external.md)** - 使用离线交易处理和签名
 - **[HTTP交易](./tx/http.md)** - 通过HTTP接口处理交易
 - **[交易编码](./tx/codec.md)** - 交易序列化和反序列化
 
@@ -162,7 +162,7 @@ XRP是Ripple的原生代币：
 
 - 查看 [快速入门指南](./intro.md)
 - 了解 [账户管理](./account/address.md)
-- 学习 [交易处理](./tx/online.md)
+- 学习 [SDK交易](./tx/sign-sdk.md)
 - 探索 [多重签名](./multisig/account.md)
 
 开始构建你的Ripple应用吧！

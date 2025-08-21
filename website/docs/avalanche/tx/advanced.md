@@ -701,9 +701,3 @@ advancedTransactionExample()
     console.error('示例执行失败:', error);
   });
 ```
-
-## 下一步
-
-- [离线签名](./offline-signing.md) - 学习离线交易签名
-- [交易解码](./decode.md) - 了解如何解码和分析交易
-- [批量操作](./batch.md) - 学习批量交易处理

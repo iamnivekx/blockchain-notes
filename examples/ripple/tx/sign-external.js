@@ -31,7 +31,7 @@ async function main() {
       // Expire this transaction if it doesn't execute within ~5 minutes:
       //       maxFee
       maxLedgerVersionOffset: 75,
-    }
+    },
   );
 
   console.log('prepare', preparedTx);
