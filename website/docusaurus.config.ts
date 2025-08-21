@@ -97,7 +97,7 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Documentation',
           items: [
             {
               label: 'Docs',
@@ -107,10 +107,48 @@ const config: Config = {
               label: 'Blog',
               to: '/blog',
             },
+            {
+              label: 'Examples',
+              href: 'https://github.com/iamnivekx/blockchain-notes/tree/main/examples',
+            },
           ],
         },
         {
-          title: 'More',
+          title: 'Blockchains',
+          items: [
+            {
+              label: 'Bitcoin',
+              to: '/category/bitcoin',
+            },
+            {
+              label: 'Ethereum',
+              to: '/category/ethereum',
+            },
+            {
+              label: 'Solana',
+              to: '/category/solana',
+            },
+            {
+              label: 'Cosmos',
+              to: '/category/cosmos',
+            },
+          ],
+        },
+        {
+          title: 'Resources',
+          items: [
+            {
+              label: 'Issues & Support',
+              href: 'https://github.com/iamnivekx/blockchain-notes/issues',
+            },
+            {
+              label: 'Contributing',
+              href: 'https://github.com/iamnivekx/blockchain-notes/blob/main/CONTRIBUTING.md',
+            },
+          ],
+        },
+        {
+          title: 'Connect',
           items: [
             {
               label: 'Twitter',
@@ -119,11 +157,11 @@ const config: Config = {
             {
               label: 'GitHub',
               href: 'https://github.com/iamnivekx',
-            },
+            }
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} iamnivekx.`,
+      copyright: `Copyright © ${new Date().getFullYear()} iamnivekx. Built with ❤️ for the blockchain community.`,
     },
     prism: {
       theme: prismThemes.dracula,
