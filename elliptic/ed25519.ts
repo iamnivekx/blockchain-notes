@@ -9,7 +9,7 @@ import nacl from 'tweetnacl';
 import assert from 'node:assert/strict';
 import crypto from 'node:crypto';
 
-function main() {
+export function tweetnacl() {
   const hashToSign = randomBytes(32);
   const privateKey = randomBytes(32);
   const keyPair = nacl.sign.keyPair.fromSeed(privateKey);
@@ -30,7 +30,7 @@ function main() {
   console.log('All tests passed');
 }
 
-function generate() {
+export function nodejs() {
   const type = 'ed25519';
   const { publicKey, privateKey } = crypto.generateKeyPairSync(type);
   const message = 'Hello world!';
@@ -42,6 +42,9 @@ function generate() {
   console.log('generated complete. \n');
 }
 
-// main();
+function main() {
+  tweetnacl();
+  nodejs();
+}
 
-generate();
+main();

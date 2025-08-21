@@ -1,0 +1,8 @@
+{
+  "label": "批量操作",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Polkadot 批量交易和操作指南，包括批量转账、条件批处理和费用优化策略。"
+  }
+}

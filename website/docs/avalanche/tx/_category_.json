@@ -1,0 +1,8 @@
+{
+  "label": "交易操作",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "学习如何在 Avalanche 上构建、签名和发送交易，包括资产转移、交易解码和批量操作。"
+  }
+}

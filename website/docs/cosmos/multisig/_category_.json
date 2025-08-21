@@ -1,0 +1,8 @@
+{
+  "label": "多重签名",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Cosmos 多重签名交易和账户管理"
+  }
+}

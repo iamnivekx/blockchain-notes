@@ -1,0 +1,8 @@
+{
+  "label": "AnySwap",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "学习如何使用 AnySwap 进行跨链资产转移和桥接，包含实际代码示例和详细操作指南。"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "label": "Stellar",
+  "position": 13,
+  "link": {
+    "type": "generated-index",
+    "description": "恒星区块链开发指南，包括账户管理、交易处理、代币发行和资产管理。"
+  }
+}

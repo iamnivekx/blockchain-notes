@@ -1,0 +1,8 @@
+{
+  "label": "多重签名",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Solana多重签名解决方案，包括Squads v3和v4多签钱包管理。"
+  }
+}

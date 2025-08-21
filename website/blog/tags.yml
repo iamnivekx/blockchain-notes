@@ -1,0 +1,110 @@
+facebook:
+  label: Facebook
+  permalink: /facebook
+  description: Facebook tag description
+
+bitcoin:
+  label: bitcoin
+  permalink: /bitcoin
+  description: Bitcoin tag description
+
+bech32:
+  label: bech32
+  permalink: /bech32
+  description: Bech32 tag description
+
+ethereum:
+  label: ethereum
+  permalink: /ethereum
+  description: Ethereum blockchain development and smart contracts
+
+eip1559:
+  label: eip1559
+  permalink: /eip1559
+  description: EIP-1559 transaction format and gas fee optimization
+
+multisig:
+  label: multisig
+  permalink: /multisig
+  description: Multi-signature wallets and Gnosis Safe integration
+
+script:
+  label: script
+  permalink: /script
+  description: Bitcoin script programming language and operations
+
+base58:
+  label: base58
+  permalink: /base58
+  description: Base58 encoding for Bitcoin addresses
+
+psbt:
+  label: psbt
+  permalink: /psbt
+  description: Partially Signed Bitcoin Transactions
+
+utxo:
+  label: utxo
+  permalink: /utxo
+  description: Unspent Transaction Output model
+
+docusaurus:
+  label: Docusaurus
+  permalink: /docusaurus
+  description: Docusaurus tag description
+
+# 新增的标签定义
+transaction:
+  label: transaction
+  permalink: /transaction
+  description: Bitcoin and blockchain transaction types and operations
+
+p2pkh:
+  label: P2PKH
+  permalink: /p2pkh
+  description: Pay-to-Public-Key-Hash transaction type
+
+p2sh:
+  label: P2SH
+  permalink: /p2sh
+  description: Pay-to-Script-Hash transaction type
+
+segwit:
+  label: SegWit
+  permalink: /segwit
+  description: Segregated Witness protocol implementation
+
+signature:
+  label: signature
+  permalink: /signature
+  description: Cryptographic signature operations
+
+bitcoinjs-lib:
+  label: bitcoinjs-lib
+  permalink: /bitcoinjs-lib
+  description: Bitcoin JavaScript library for transaction operations
+
+blockchain:
+  label: blockchain
+  permalink: /blockchain
+  description: Blockchain technology and development
+
+development:
+  label: development
+  permalink: /development
+  description: Blockchain and cryptocurrency development
+
+address:
+  label: address
+  permalink: /address
+  description: Cryptocurrency address generation and validation
+
+cryptography:
+  label: cryptography
+  permalink: /cryptography
+  description: Cryptographic algorithms and security
+
+account:
+  label: account
+  permalink: /account
+  description: Blockchain account management and operations

@@ -1,0 +1,8 @@
+{
+  "label": "代币操作",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Solana代币操作指南，包括SPL代币标准、代币转账和余额管理。"
+  }
+}

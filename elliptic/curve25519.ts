@@ -17,7 +17,7 @@ import nacl from 'tweetnacl';
 var secret = process.env.CURVE_25519_SECRET;
 const ec = new EC('curve25519');
 
-function elliptic(): void {
+export function elliptic(): void {
   var key1 = ec.genKeyPair();
   var key2 = ec.genKeyPair();
 
@@ -32,11 +32,15 @@ function elliptic(): void {
   console.log('Public key:', keyPair.getPublic('hex'));
 }
 
-function tweetnacl() {
+export function tweetnacl() {
   var secretKey = hexToBytes(secret);
   var keyPair = nacl.box.keyPair.fromSecretKey(secretKey);
   console.log('Public key:', bytesToHex(keyPair.publicKey));
 }
 
-elliptic();
-tweetnacl();
+function main() {
+  elliptic();
+  tweetnacl();
+}
+
+main();

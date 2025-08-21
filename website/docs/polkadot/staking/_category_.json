@@ -1,0 +1,8 @@
+{
+  "label": "质押",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "Polkadot 质押和验证人系统指南，包括质押操作、奖励管理、验证人选择和策略优化。"
+  }
+}

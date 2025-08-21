@@ -1,0 +1,8 @@
+{
+  "label": "Avalanche",
+  "position": 6,
+  "link": {
+    "type": "generated-index",
+    "description": "Avalanche 是一个高性能的区块链平台，支持智能合约和去中心化应用。学习如何使用 AvalancheJS 进行账户管理、交易签名和资产转移。"
+  }
+}

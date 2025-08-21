@@ -1,0 +1,8 @@
+{
+  "label": "Gnosis Safe",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Gnosis Safe多重签名钱包集成和操作指南。"
+  }
+}

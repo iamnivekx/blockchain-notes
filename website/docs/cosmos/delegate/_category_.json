@@ -1,0 +1,8 @@
+{
+  "label": "质押委托",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Cosmos 质押、委托和奖励管理"
+  }
+}

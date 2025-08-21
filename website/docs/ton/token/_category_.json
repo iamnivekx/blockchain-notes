@@ -1,0 +1,8 @@
+{
+  "label": "代币操作",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "TON 代币操作，包括 Jetton 代币的转账、授权和管理。"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "label": "地址管理",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "比特币地址生成、验证和转换指南。"
+  }
+}

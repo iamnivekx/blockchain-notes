@@ -1,0 +1,8 @@
+{
+  "label": "订阅和监控",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "Solana区块链事件订阅和实时监控，包括日志监听、账户变化和价格监控。"
+  }
+}

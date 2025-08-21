@@ -1,0 +1,8 @@
+{
+  "label": "账户管理",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "TON 账户管理，包括私钥、公钥、地址生成和钱包操作。"
+  }
+}

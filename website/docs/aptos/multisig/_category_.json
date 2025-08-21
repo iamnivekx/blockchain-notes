@@ -1,0 +1,8 @@
+{
+  "label": "多重签名",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Aptos多重签名指南，包括多签账户创建和多签交易构建。"
+  }
+}

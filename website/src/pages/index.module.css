@@ -1,0 +1,411 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.hero__subtitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 1rem 0;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.4;
+}
+
+.hero__description {
+  font-size: 1.2rem;
+  margin: 1rem 0 2rem 0;
+  opacity: 0.95;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+  
+  .hero__subtitle {
+    font-size: 1.3rem;
+    margin: 0.75rem 0;
+  }
+  
+  .hero__description {
+    font-size: 1rem;
+    margin: 1rem 0 1.5rem 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero__subtitle {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.buttons .button {
+  border-radius: 25px;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.buttons .button--secondary {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+.buttons .button--secondary:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.buttons .button--primary {
+  background: #667eea;
+  border-color: #667eea;
+  color: white;
+}
+
+.buttons .button--primary:hover {
+  background: #5a6fd8;
+  border-color: #5a6fd8;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+@media screen and (max-width: 768px) {
+  .buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .buttons .button {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* 特色功能部分 - 明暗色调支持 */
+.features {
+  padding: 3rem 0;
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-900);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 暗色调样式 */
+[data-theme='dark'] .features {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  color: white;
+}
+
+/* 明色调样式 */
+[data-theme='light'] .features {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  color: var(--ifm-color-emphasis-900);
+}
+
+.features .text--center h2 {
+  color: inherit;
+  margin-bottom: 1rem;
+}
+
+.features .text--center p {
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 1rem;
+}
+
+[data-theme='dark'] .features .text--center p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.featureIcon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.75rem auto;
+  color: white;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+[data-theme='dark'] .featureIcon {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.featureIcon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme='dark'] .featureIcon:hover {
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+}
+
+.features .text--center {
+  margin-bottom: 1rem;
+}
+
+.features .text--center h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: inherit;
+}
+
+.features .text--center p {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  color: var(--ifm-color-emphasis-700);
+}
+
+[data-theme='dark'] .features .text--center p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.features .button {
+  border-radius: 20px;
+  padding: 0.4rem 1.2rem;
+  font-weight: 500;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.features .button--outline {
+  background: transparent;
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+[data-theme='dark'] .features .button--outline {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+.features .button--outline:hover {
+  background: var(--ifm-color-primary);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+}
+
+[data-theme='dark'] .features .button--outline:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* 快速开始部分 - 明暗色调支持 */
+.quickStart {
+  padding: 3rem 0;
+  background: var(--ifm-background-color);
+  color: var(--ifm-color-emphasis-900);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.quickStart .card {
+  height: 100%;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  background: var(--ifm-card-background-color);
+}
+
+.quickStart .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+  border-color: var(--ifm-color-primary);
+}
+
+[data-theme='dark'] .quickStart .card:hover {
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+.quickStart .card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.25rem 0 1.25rem;
+}
+
+.quickStart .card__header h3 {
+  margin: 0;
+  flex: 1;
+  color: var(--ifm-color-emphasis-900);
+  font-size: 1.1rem;
+}
+
+.quickStart .card__body {
+  padding: 0.75rem 1.25rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.quickStart .card__footer {
+  padding: 0 1.25rem 1.25rem 1.25rem;
+}
+
+.quickStart .button {
+  border-radius: 20px;
+  padding: 0.4rem 1.2rem;
+  font-weight: 500;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.quickStart .button--primary {
+  background: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+  color: white;
+}
+
+.quickStart .button--primary:hover {
+  background: var(--ifm-color-primary-darker);
+  border-color: var(--ifm-color-primary-darker);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+}
+
+.quickStart .badge {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+/* 社区部分 - 明暗色调支持 */
+.community {
+  padding: 3rem 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  transition: background 0.3s ease;
+}
+
+/* 暗色调下的社区部分 */
+[data-theme='dark'] .community {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+}
+
+.community h2 {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.community p {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
+}
+
+.communityButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.communityButtons .button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  border-radius: 20px;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.9rem;
+}
+
+.communityButtons .button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 768px) {
+  .communityButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* 响应式调整 */
+@media screen and (max-width: 996px) {
+  .features,
+  .quickStart,
+  .community {
+    padding: 2rem 0;
+  }
+  
+  .featureIcon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .features .text--center h3 {
+    font-size: 1rem;
+  }
+  
+  .features .text--center p {
+    font-size: 0.85rem;
+  }
+  
+  .quickStart .card__header h3 {
+    font-size: 1rem;
+  }
+  
+  .quickStart .card__body {
+    font-size: 0.85rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .features,
+  .quickStart,
+  .community {
+    padding: 1.5rem 0;
+  }
+  
+  .featureIcon {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .features .text--center h3 {
+    font-size: 0.95rem;
+  }
+  
+  .features .text--center p {
+    font-size: 0.8rem;
+  }
+}

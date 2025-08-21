@@ -1,0 +1,8 @@
+{
+  "label": "DeFi集成",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Solana DeFi集成指南，包括Jupiter聚合器、Raydium等。"
+  }
+}

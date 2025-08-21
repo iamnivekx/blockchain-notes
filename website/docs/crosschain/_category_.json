@@ -1,0 +1,8 @@
+{
+  "label": "跨链技术",
+  "position": 8,
+  "link": {
+    "type": "generated-index",
+    "description": "学习如何使用各种协议和桥接实现跨链功能。"
+  }
+}

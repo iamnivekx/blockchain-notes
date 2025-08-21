@@ -1,0 +1,8 @@
+{
+  "label": "代币操作",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Aptos代币操作指南，包括代币转账、自定义代币创建和余额管理。"
+  }
+}
