@@ -6,6 +6,7 @@ import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 
+/** @type {import('@docusaurus/types').Config} */
 const config: Config = {
   title: 'Blockchain Notes',
   tagline: 'Blockchain Notes',
@@ -37,6 +38,29 @@ const config: Config = {
     defaultLocale: 'zh-Hans',
     locales: ['zh-Hans'],
   },
+
+  plugins: [
+    async function tailwindPlugin(context, options) {
+      return {
+        name: 'tailwind-plugin',
+        configurePostCss(postcssOptions) {
+          postcssOptions.plugins = [require('@tailwindcss/postcss')]
+          return postcssOptions
+        }
+      }
+    },
+    [
+      'ideal-image',
+      /** @type {import('@docusaurus/plugin-ideal-image').PluginOptions} */
+      {
+        quality: 70,
+        max: 1030, // max resized image's size.
+        min: 640, // min resized image's size. if original is lower, use that size.
+        steps: 2, // the max number of images generated between min and max (inclusive)
+        disableInDev: false,
+      },
+    ],
+  ],
 
   presets: [
     [
@@ -167,7 +191,43 @@ const config: Config = {
       theme: prismThemes.dracula,
       darkTheme: prismThemes.dracula,
     },
+    languageTabs: [
+      { highlight: 'python', language: 'python', logoClass: 'python' },
+      { highlight: 'bash', language: 'curl', logoClass: 'curl' },
+      { highlight: 'csharp', language: 'csharp', logoClass: 'csharp' },
+      { highlight: 'go', language: 'go', logoClass: 'go' },
+      { highlight: 'javascript', language: 'nodejs', logoClass: 'nodejs' },
+      { highlight: 'ruby', language: 'ruby', logoClass: 'ruby' },
+      { highlight: 'php', language: 'php', logoClass: 'php' },
+      { highlight: 'java', language: 'java', logoClass: 'java', variant: 'unirest' },
+      { highlight: 'powershell', language: 'powershell', logoClass: 'powershell' },
+      { highlight: 'dart', language: 'dart', logoClass: 'dart' },
+      { highlight: 'javascript', language: 'javascript', logoClass: 'javascript' },
+      { highlight: 'c', language: 'c', logoClass: 'c' },
+      { highlight: 'objective-c', language: 'objective-c', logoClass: 'objective-c' },
+      { highlight: 'ocaml', language: 'ocaml', logoClass: 'ocaml' },
+      { highlight: 'r', language: 'r', logoClass: 'r' },
+      { highlight: 'swift', language: 'swift', logoClass: 'swift' },
+      { highlight: 'kotlin', language: 'kotlin', logoClass: 'kotlin' },
+      { highlight: 'rust', language: 'rust', logoClass: 'rust' }
+    ]
   } satisfies Preset.ThemeConfig,
+  themes: [
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      {
+        indexPages: true,
+        docsRouteBasePath: '/docs',
+        hashed: true,
+        language: ['en'],
+        highlightSearchTermsOnTargetPage: false,
+        searchResultContextMaxLength: 50,
+        searchResultLimits: 8,
+        searchBarShortcut: true,
+        searchBarShortcutHint: true
+      }
+    ]
+  ],
 };
 
 export default config;
