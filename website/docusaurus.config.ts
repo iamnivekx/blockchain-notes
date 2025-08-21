@@ -11,6 +11,7 @@ const config: Config = {
   title: 'Blockchain Notes',
   tagline: 'Blockchain Notes',
   favicon: 'img/favicon.ico',
+  staticDirectories: ['public', 'static'],
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
