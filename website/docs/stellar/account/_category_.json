@@ -1,0 +1,8 @@
+{
+  "label": "账户管理",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "学习如何创建、管理和使用 Stellar 账户，包括密钥生成、地址管理和余额查询。"
+  }
+}
