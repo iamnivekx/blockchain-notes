@@ -14,8 +14,8 @@
 - **[Byron 地址](account/byron.md)** - 旧版本地址格式的处理
 
 ### 交易处理
+- **[Byron 交易](tx/byron.md)** - 旧版本交易格式的处理
 - **[Shelley 交易](tx/shelley.md)** - 现代交易格式的构建和签名
-- **[Byron 交易](tx/byron.ts)** - 旧版本交易格式的处理
 - **[交易提交](tx/submit.md)** - 交易广播和网络提交
 
 ## 🚀 快速开始
