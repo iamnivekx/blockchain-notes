@@ -20,7 +20,7 @@ Cardano 是一个基于权益证明（PoS）的第三代区块链平台，采用
 ### 1. 账户管理
 - [账户管理](./account/account.md) - 密钥派生和账户创建
 - [Byron 地址](./account/byron.md) - 旧版本地址格式处理
-- [地址类型](./account/account.md#地址生成) - 多种地址格式支持
+- [地址类型](./account/account.md) - 多种地址格式支持
 
 ### 2. 交易处理
 - [Shelley 交易](./tx/shelley.md) - 现代交易格式构建
@@ -28,14 +28,14 @@ Cardano 是一个基于权益证明（PoS）的第三代区块链平台，采用
 - [交易提交](./tx/submit.md) - 交易广播和网络提交
 
 ### 3. 密钥管理
-- [BIP39 助记词](./account/account.md#账户密钥派生) - 助记词生成和恢复
-- [BIP32 密钥派生](./account/account.md#密钥派生路径) - 分层确定性钱包
-- [Ed25519 椭圆曲线](./account/byron.md#从私钥派生) - 数字签名算法
+- [BIP39 助记词](./account/account.md) - 助记词生成和恢复
+- [BIP32 密钥派生](./account/account.md) - 分层确定性钱包
+- [Ed25519 椭圆曲线](./account/byron.md) - 数字签名算法
 
 ### 4. 网络集成
-- [主网配置](./intro.md#网络配置) - 生产环境设置
-- [测试网配置](./intro.md#网络配置) - 开发测试环境
-- [API 端点](./tx/submit.md#提交端点) - 网络交互接口
+- [主网配置](./intro.md) - 生产环境设置
+- [测试网配置](./intro.md) - 开发测试环境
+- [API 端点](./tx/submit.md) - 网络交互接口
 
 ## 开发工具
 

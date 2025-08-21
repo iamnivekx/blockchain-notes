@@ -1,4 +1,4 @@
-import { themes as prismThemes } from 'prism-react-renderer';
+import { themes } from 'prism-react-renderer';
 import remarkCodeImport from 'remark-code-import';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
@@ -11,11 +11,11 @@ const config: Config = {
   title: 'Blockchain Notes',
   tagline: 'Blockchain Notes',
   favicon: 'img/favicon.ico',
-  staticDirectories: ['public', 'static'],
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+    v4: true,
+    experimental_faster: true, // turns Docusaurus Faster on globally
   },
 
   // Set the production url of your site here
@@ -51,8 +51,7 @@ const config: Config = {
       }
     },
     [
-      'ideal-image',
-      /** @type {import('@docusaurus/plugin-ideal-image').PluginOptions} */
+      '@docusaurus/plugin-ideal-image',
       {
         quality: 70,
         max: 1030, // max resized image's size.
@@ -69,13 +68,16 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          path: 'docs',
+          // path: 'docs',
+          breadcrumbs: true,
+          editUrl:
+            'https://github.com/iamnivekx/blockchain-notes/tree/main',
           routeBasePath: '/',
           remarkPlugins: [
             remarkCodeImport,
             remarkMath
           ],
-          rehypePlugins: [rehypeKatex],
+          rehypePlugins: [rehypeKatex]
         },
         blog: {
           showReadingTime: true,
@@ -102,6 +104,9 @@ const config: Config = {
 
   themeConfig: {
     image: 'img/favicon-16x16.png',
+    metadata: [
+      { name: 'algolia-site-verification', content: '8EC3DD2479BB15D9' },
+    ],
     navbar: {
       title: 'Blockchain Notes',
       logo: {
@@ -109,7 +114,8 @@ const config: Config = {
         src: 'img/logo.svg',
       },
       items: [
-        { to: '/intro', label: 'Docs', position: 'left' },
+        { type: 'docSidebar', sidebarId: 'tutorialSidebar', position: 'left', label: 'Docs' },
+        // { to: '/intro', label: 'Docs', position: 'left' },
         { to: '/blog', label: 'Blog', position: 'left' },
         {
           href: 'https://github.com/iamnivekx/blockchain-notes',
@@ -117,6 +123,12 @@ const config: Config = {
           position: 'right',
         },
       ],
+    },
+    docs: { sidebar: { autoCollapseCategories: true, hideable: true, }, },
+    blog: { sidebar: { groupByYear: true } },
+    sitemap: {
+      changefreq: 'weekly',
+      priority: 0.5,
     },
     footer: {
       style: 'dark',
@@ -177,7 +189,7 @@ const config: Config = {
           items: [
             {
               label: 'Twitter',
-              href: 'https://twitter.com/iamnivekx',
+              href: 'https://x.com/inivek3',
             },
             {
               label: 'GitHub',
@@ -188,9 +200,20 @@ const config: Config = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} iamnivekx. Built with ❤️ for the blockchain community.`,
     },
+    algolia: {
+      contextualSearch: true,
+      appId: 'JJZW6V48W2',
+      apiKey: '9e65e0723da0b92f16e78775eae90e1f',
+      // indexName: 'blockchain_notes',
+      indexName: 'blockchain_notes',
+      searchParameters: {
+        hitsPerPage: 4,
+      },
+    },
     prism: {
-      theme: prismThemes.dracula,
-      darkTheme: prismThemes.dracula,
+      theme: themes.dracula,
+      darkTheme: themes.dracula,
+      additionalLanguages: ['bash', 'diff', 'json'],
     },
     languageTabs: [
       { highlight: 'python', language: 'python', logoClass: 'python' },
@@ -214,21 +237,32 @@ const config: Config = {
     ]
   } satisfies Preset.ThemeConfig,
   themes: [
+    // [
+    //   '@easyops-cn/docusaurus-search-local',
+    //   {
+    //     indexPages: true,
+    //     docsRouteBasePath: '/docs',
+    //     hashed: true,
+    //     language: ['en'],
+    //     highlightSearchTermsOnTargetPage: false,
+    //     searchResultContextMaxLength: 50,
+    //     searchResultLimits: 8,
+    //     searchBarShortcut: true,
+    //     searchBarShortcutHint: true
+    //   }
+    // ],
     [
-      require.resolve('@easyops-cn/docusaurus-search-local'),
+      '@docusaurus/theme-mermaid',
       {
-        indexPages: true,
-        docsRouteBasePath: '/docs',
-        hashed: true,
-        language: ['en'],
-        highlightSearchTermsOnTargetPage: false,
-        searchResultContextMaxLength: 50,
-        searchResultLimits: 8,
-        searchBarShortcut: true,
-        searchBarShortcutHint: true
-      }
+        mermaid: {
+          theme: 'dark',
+        },
+      },
     ]
   ],
+  markdown: {
+    mermaid: true,
+  },
 };
 
 export default config;

@@ -117,7 +117,7 @@ function HomepageFeatures() {
   return (
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
           {features.map((feature, idx) => (
             <div key={idx} className="text-center flex flex-col h-full">
               <div className="mb-6">
@@ -181,7 +181,7 @@ function QuickStart() {
           <h2 className="text-4xl font-bold mb-4 text-gray-800">快速开始</h2>
           <p className="text-xl text-gray-600">选择适合你水平的教程，快速上手区块链开发</p>
         </div>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {quickStartItems.map((item, idx) => (
             <div key={idx} className="bg-white rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
               <div className="p-6">
