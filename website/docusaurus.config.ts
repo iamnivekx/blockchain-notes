@@ -209,15 +209,15 @@ const config: Config = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} iamnivekx. Built with ❤️ for the blockchain community.`,
     },
-    algolia: {
-      contextualSearch: true,
-      appId: 'UBLG1RVVFZ',
-      apiKey: 'bc19b765e456211b26fd01c36604b783',
-      indexName: 'blockchain_notes',
-      searchParameters: {
-        hitsPerPage: 4,
-      },
-    },
+    // algolia: {
+    //   contextualSearch: true,
+    //   appId: 'UBLG1RVVFZ',
+    //   apiKey: 'bc19b765e456211b26fd01c36604b783',
+    //   indexName: 'blockchain_notes',
+    //   searchParameters: {
+    //     hitsPerPage: 4,
+    //   },
+    // },
     prism: {
       theme: themes.dracula,
       darkTheme: themes.dracula,
@@ -245,20 +245,20 @@ const config: Config = {
     ]
   } satisfies Preset.ThemeConfig,
   themes: [
-    // [
-    //   '@easyops-cn/docusaurus-search-local',
-    //   {
-    //     indexPages: true,
-    //     docsRouteBasePath: '/docs',
-    //     hashed: true,
-    //     language: ['en'],
-    //     highlightSearchTermsOnTargetPage: false,
-    //     searchResultContextMaxLength: 50,
-    //     searchResultLimits: 8,
-    //     searchBarShortcut: true,
-    //     searchBarShortcutHint: true
-    //   }
-    // ],
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      {
+        indexPages: true,
+        docsRouteBasePath: '/docs',
+        hashed: true,
+        language: ["en", "zh"],
+        highlightSearchTermsOnTargetPage: false,
+        searchResultContextMaxLength: 50,
+        searchResultLimits: 5,
+        searchBarShortcut: true,
+        searchBarShortcutHint: true
+      }
+    ],
     [
       '@docusaurus/theme-mermaid',
       {
