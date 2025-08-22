@@ -11,70 +11,70 @@ const BLOCKCHAIN_FEATURES = [
   {
     title: '比特币开发',
     description: '脚本系统、地址生成、交易构建、多签',
-    icon: '₿',
+    icon: 'https://cryptofonts.com/img/icons/btc.svg',
     link: '/bitcoin/intro',
-    color: 'from-orange-500 to-orange-600',
+    color: 'from-yellow-500 to-yellow-600',
   },
   {
     title: '以太坊生态',
     description: '智能合约、账户管理、交易签名、多签',
-    icon: 'Ξ',
+    icon: 'https://cryptofonts.com/img/icons/eth.svg',
     link: '/ethereum/intro',
     color: 'from-blue-500 to-blue-600',
   },
   {
     title: 'Solana生态',
     description: '账户管理、交易签名、多签、事件订阅',
-    icon: '☀️',
+    icon: 'https://cryptofonts.com/img/icons/sol.svg',
     link: '/solana/intro',
     color: 'from-green-400 to-green-500',
   },
   {
     title: 'Polkadot生态',
     description: '账户管理、交易签名、多签',
-    icon: '🔴',
+    icon: 'https://cryptofonts.com/img/icons/dot.svg',
     link: '/polkadot/intro',
     color: 'from-pink-500 to-pink-600',
   },
   {
     title: 'Cosmos生态',
     description: '账户管理、交易签名、多签',
-    icon: '🌌',
+    icon: 'https://cryptofonts.com/img/icons/atom.svg',
     link: '/cosmos/intro',
     color: 'from-slate-600 to-slate-700',
   },
   {
     title: 'Ripple生态',
     description: '账户管理、交易签名、多签',
-    icon: '💧',
+    icon: 'https://cryptofonts.com/img/icons/xrp.svg',
     link: '/ripple/intro',
     color: 'from-gray-700 to-gray-800',
   },
   {
     title: 'Avalanche生态',
     description: '高性能区块链、智能合约、账户管理、交易签名',
-    icon: '❄️',
+    icon: 'https://cryptofonts.com/img/icons/avax.svg',
     link: '/avalanche/intro',
     color: 'from-red-500 to-red-600',
   },
   {
     title: 'Aptos生态',
     description: '智能合约、账户管理、交易签名、多签',
-    icon: '🚀',
+    icon: 'https://cryptofonts.com/img/icons/apt.svg',
     link: '/aptos/intro',
     color: 'from-black to-gray-800',
   },
   {
     title: 'Cardano生态',
     description: '智能合约、账户管理、交易签名、多签',
-    icon: '🔵',
+    icon: 'https://cryptofonts.com/img/icons/ada.svg',
     link: '/cardano/intro',
     color: 'from-blue-600 to-blue-700',
   },
   {
     title: '跨链技术',
     description: 'AnySwap 桥接协议、ABI 处理、代币授权、USDT/CLV 桥接',
-    icon: '🔗',
+    icon: 'https://cryptofonts.com/img/icons/gswap.svg',
     link: '/crosschain/anyswap/intro',
     color: 'from-emerald-500 to-emerald-600',
   },
@@ -162,11 +162,9 @@ function FeatureCard({
 }) {
   return (
     <div className="group text-center flex flex-col h-full">
-      <div className="mb-6">
-        <div
-          className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg transition-all duration-300 group-hover:scale-110 bg-gradient-to-br ${color}`}
-        >
-          <span className="text-3xl">{icon}</span>
+      <div className="mb-8">
+        <div className="w-20 h-20 mx-auto rounded-full flex items-center justify-center bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg shadow-lg transition-all duration-300 group-hover:scale-110">
+          <img src={icon} alt={title} className="w-14 h-14" />
         </div>
       </div>
       <h3 className="text-xl font-bold mb-3 text-foreground">{title}</h3>
