@@ -1,20 +1,19 @@
-import { HexString } from 'aptos';
-import aptos from 'aptos';
+import { AptosClient, AptosAccount, HexString, BCS, TransactionBuilder, TransactionBuilderABI, TxnBuilderTypes } from 'aptos';
 import nacl from 'tweetnacl';
 import assert from 'assert';
 
 const aptosCoin = '0x1::coin::CoinStore<0x1::aptos_coin::AptosCoin>';
 
 const NODE_URL = 'https://fullnode.testnet.aptoslabs.com';
-const client = new aptos.AptosClient(NODE_URL);
+const client = new AptosClient(NODE_URL);
 
 const COIN_ABIS = [
 	"01087472616E73666572000000000000000000000000000000000000000000000000000000000000000104636F696E3C205472616E73666572732060616D6F756E7460206F6620636F696E732060436F696E54797065602066726F6D206066726F6D6020746F2060746F602E0109636F696E5F747970650202746F0406616D6F756E7402"
 ];
 
 function walletAccount(privKey) {
-	const privKeyHexStr = new aptos.HexString(privKey);
-	const account = new aptos.AptosAccount(privKeyHexStr.toUint8Array());
+	const privKeyHexStr = new HexString(privKey);
+	const account = new AptosAccount(privKeyHexStr.toUint8Array());
 	const address = account.address();
 	const privateKeyObject = account.toPrivateKeyObject();
 	console.log('address			: ', address);
@@ -77,14 +76,14 @@ async function main() {
 	const rawTxn = await client.generateTransaction(senderAddress, payload, config);
 	console.log('rawTxn : ', rawTxn);
 	{
-		const transactionBuilder = new aptos.TransactionBuilderABI(COIN_ABIS.map((abi) => new aptos.HexString(abi).toUint8Array()));
-		// const transactionBuilder = new aptos.TransactionBuilderRemoteABI(aptos);
+		const transactionBuilder = new TransactionBuilderABI(COIN_ABIS.map((abi) => new HexString(abi).toUint8Array()));
+		// const transactionBuilder = new TransactionBuilderRemoteABI(aptos);
 		const payload = transactionBuilder.buildTransactionPayload(
 			"0x1::coin::transfer",
 			['0x1::aptos_coin::AptosCoin'],
 			[receiverAddress.hex(), 717],
 		);
-		const payloadBytes = aptos.BCS.bcsToBytes(payload);
+		const payloadBytes = BCS.bcsToBytes(payload);
 		console.log("payload : ", HexString.fromUint8Array(payloadBytes).hex());
 
 		const builderConfig = {
@@ -93,51 +92,52 @@ async function main() {
 			sequenceNumber: config.sequence_number,
 			gasUnitPrice: config.gas_unit_price,
 			expirationTimestampSecs: config.expiration_timestamp_secs,
+			maxGasAmount: 20000n,
 		};
 		// const rawTx = await client.generateRawTransaction(senderAddress, payload, extraArgs);
-		const rawTxn = new aptos.TxnBuilderTypes.RawTransaction(
-			aptos.TxnBuilderTypes.AccountAddress.fromHex(senderAddress),
+		const rawTxn = new TxnBuilderTypes.RawTransaction(
+			TxnBuilderTypes.AccountAddress.fromHex(senderAddress),
 			BigInt(builderConfig.sequenceNumber),
 			payload,
 			BigInt(builderConfig.maxGasAmount || 20000n),
 			BigInt(builderConfig.gasUnitPrice),
 			BigInt(builderConfig.expirationTimestampSecs),
-			new aptos.TxnBuilderTypes.ChainId(builderConfig.chainId),
+			new TxnBuilderTypes.ChainId(builderConfig.chainId),
 		);
 
-		const signingMsg = aptos.TransactionBuilder.getSigningMessage(rawTxn);
+		const signingMsg = TransactionBuilder.getSigningMessage(rawTxn);
 		const signedMsg = nacl.sign(signingMsg, senderAccount.signingKey.secretKey);
-		const signedMsgHexStr = aptos.HexString.fromUint8Array(signedMsg.slice(0, 64))
+		const signedMsgHexStr = HexString.fromUint8Array(signedMsg.slice(0, 64))
 
-		const signature = new aptos.TxnBuilderTypes.Ed25519Signature(signedMsgHexStr.toUint8Array());
-		const authenticator = new aptos.TxnBuilderTypes.AccountAuthenticatorEd25519(
-			new aptos.TxnBuilderTypes.Ed25519PublicKey(senderAccount.pubKey().toUint8Array()),
+		const signature = new TxnBuilderTypes.Ed25519Signature(signedMsgHexStr.toUint8Array());
+		const authenticator = new TxnBuilderTypes.AccountAuthenticatorEd25519(
+			new TxnBuilderTypes.Ed25519PublicKey(senderAccount.pubKey().toUint8Array()),
 			signature,
 		);
-		const signedTxn = new aptos.TxnBuilderTypes.SignedTransaction(rawTxn, authenticator);
-		const bscSignedTxn = aptos.BCS.bcsToBytes(signedTxn);
+		const signedTxn = new TxnBuilderTypes.SignedTransaction(rawTxn, authenticator);
+		const bscSignedTxn = BCS.bcsToBytes(signedTxn);
 
-		const bcsData = aptos.BCS.bcsToBytes(signedTxn);
-		const deserializer = new aptos.BCS.Deserializer(bcsData);
-		const tx = aptos.TxnBuilderTypes.UserTransaction.load(deserializer);
-		const pubKey = new aptos.TxnBuilderTypes.Ed25519PublicKey(senderAccount.pubKey().toUint8Array());
+		const bcsData = BCS.bcsToBytes(signedTxn);
+		const deserializer = new BCS.Deserializer(bcsData);
+		const tx = TxnBuilderTypes.UserTransaction.load(deserializer);
+		const pubKey = new TxnBuilderTypes.Ed25519PublicKey(senderAccount.pubKey().toUint8Array());
 		const result = await client.simulateTransaction(pubKey, rawTxn);
 		console.log('result : ', result);
-		console.log('rawTxn : ', HexString.fromUint8Array(aptos.BCS.bcsToBytes(rawTxn)).hex());
-		console.log('bscSignedTxn: ', aptos.HexString.fromUint8Array(bscSignedTxn).hex());
-		console.log('tx hash: ', aptos.HexString.fromUint8Array(tx.hash()).hex());
+		console.log('rawTxn : ', HexString.fromUint8Array(BCS.bcsToBytes(rawTxn)).hex());
+		console.log('bscSignedTxn: ', HexString.fromUint8Array(bscSignedTxn).hex());
+		console.log('tx hash: ', HexString.fromUint8Array(tx.hash()).hex());
 
 		const transactionRes = await client.submitTransaction(bscSignedTxn);
-		console.log('signingMsg  : ', aptos.HexString.fromUint8Array(signingMsg).hex());
+		console.log('signingMsg  : ', HexString.fromUint8Array(signingMsg).hex());
 		console.log('signedMsg   : ', signedMsgHexStr.hex());
-		console.log('bscSignedTxn: ', aptos.HexString.fromUint8Array(bscSignedTxn).hex());
+		console.log('bscSignedTxn: ', HexString.fromUint8Array(bscSignedTxn).hex());
 		console.log('txHash	 	 : ', transactionRes.hash);
 	}
-	return;
-	const serializer = new aptos.BCS.Serializer();
+
+	const serializer = new BCS.Serializer();
 	rawTxn.expiration_timestamp_secs = config.expiration_timestamp_secs;
 	rawTxn.serialize(serializer);
-	const rawTxnSerialized = aptos.HexString.fromUint8Array(serializer.getBytes()).hex();
+	const rawTxnSerialized = HexString.fromUint8Array(serializer.getBytes()).hex();
 	console.log('[step] rawTxn 			: ', rawTxn);
 	assert.strictEqual(
 		rawTxnSerialized,
@@ -148,47 +148,47 @@ async function main() {
 	console.log('[step] rawTxnSerialized 	: ', rawTxnSerialized);
 	const signedTxn = await client.signTransaction(senderAccount, rawTxn);
 
-	const signingMessage = aptos.TransactionBuilder.getSigningMessage(rawTxn);
+	const signingMessage = TransactionBuilder.getSigningMessage(rawTxn);
 	const sigHexStr = senderAccount.signBuffer(signingMessage);
 	console.log('[step] signing hex : ', sigHexStr.hex());
 
 	{
 		const signedMsg = nacl.sign(signingMessage, senderAccount.signingKey.secretKey);
-		const signedMsgHexStr = aptos.HexString.fromUint8Array(signedMsg.slice(0, 64))
-		console.log('[step] signingMessage : ', aptos.HexString.fromUint8Array(signingMessage).hex());
+		const signedMsgHexStr = HexString.fromUint8Array(signedMsg.slice(0, 64))
+		console.log('[step] signingMessage : ', HexString.fromUint8Array(signingMessage).hex());
 		console.log('[step] signingHex     : ', signedMsgHexStr.hex());
 		assert.strictEqual(signedMsgHexStr.hex(), sigHexStr.hex(), 'sigHexStr should be equal');
 	}
 
-	const bscSignedTxn = aptos.AptosClient.generateBCSTransaction(senderAddress, rawTxn);
+	const bscSignedTxn = AptosClient.generateBCSTransaction(senderAddress, rawTxn);
 	assert.strictEqual(
-		aptos.HexString.fromUint8Array(signedTxn).hex(),
-		aptos.HexString.fromUint8Array(bscSignedTxn).hex(),
+		HexString.fromUint8Array(signedTxn).hex(),
+		HexString.fromUint8Array(bscSignedTxn).hex(),
 		'signedTxn should be equal',
 	);
 
 	{
-		const signature = new aptos.TxnBuilderTypes.Ed25519Signature(sigHexStr.toUint8Array());
-		const authenticator = new aptos.TxnBuilderTypes.AccountAuthenticatorEd25519(
-			new aptos.TxnBuilderTypes.Ed25519PublicKey(senderAddress.pubKey().toUint8Array()),
+		const signature = new TxnBuilderTypes.Ed25519Signature(sigHexStr.toUint8Array());
+		const authenticator = new TxnBuilderTypes.AccountAuthenticatorEd25519(
+			new TxnBuilderTypes.Ed25519PublicKey(senderAddress.pubKey().toUint8Array()),
 			signature,
 		);
-		const signedTransaction = new aptos.TxnBuilderTypes.SignedTransaction(rawTxn, authenticator);
-		const signedTransactionSerialized = aptos.BCS.bcsToBytes(signedTransaction);
+		const signedTransaction = new TxnBuilderTypes.SignedTransaction(rawTxn, authenticator);
+		const signedTransactionSerialized = BCS.bcsToBytes(signedTransaction);
 		assert.strictEqual(
-			aptos.HexString.fromUint8Array(signedTransactionSerialized).hex(),
-			aptos.HexString.fromUint8Array(bscSignedTxn).hex(),
+			HexString.fromUint8Array(signedTransactionSerialized).hex(),
+			HexString.fromUint8Array(bscSignedTxn).hex(),
 			'signedTransactionSerialized should be equal',
 		);
 	}
 	const result = await client.submitBCSSimulation(signedTxn);
 	console.log('result : ', result);
-	console.log('[step] signedTxn	 Hex 	: ', aptos.HexString.fromUint8Array(signedTxn).hex());
-	return;
+	console.log('[step] signedTxn	 Hex 	: ', HexString.fromUint8Array(signedTxn).hex());
+
 	const transactionRes = await client.submitTransaction(signedTxn);
 	await client.waitForTransaction(transactionRes.hash);
 
-	await getAccountResources(account2.address());
+	await getAccountResources(receiverAddress);
 }
 
 main().catch(console.error);

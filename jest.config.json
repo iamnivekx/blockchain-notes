@@ -2,6 +2,6 @@
   "bail": false,
   "verbose": true,
   "moduleFileExtensions": ["ts", "js", "json"],
-  "testMatch": ["**/*.test.(ts|js)"],
+  "testMatch": ["**/*.test.(ts|js)", "**/*.spec.(ts|js)"],
   "testEnvironment": "node"
 }

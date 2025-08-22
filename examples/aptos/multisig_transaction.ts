@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: Apache-2.0
 // https://github.com/aptos-labs/aptos-core/blob/main/ecosystem/typescript/sdk/examples/typescript/multisig_transaction.ts
 
-import { AptosClient, AptosAccount, FaucetClient, HexString, BCS, TransactionBuilder, TransactionBuilderABI, TransactionBuilderMultiEd25519, TxnBuilderTypes } from "aptos";
+import { AptosClient, AptosAccount, FaucetClient, HexString, BCS, TransactionBuilder, TransactionBuilderMultiEd25519, TxnBuilderTypes } from "aptos";
 import assert from 'assert';
 import nacl from 'tweetnacl';
 
