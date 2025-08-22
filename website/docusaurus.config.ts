@@ -140,7 +140,7 @@ const config: Config = {
       priority: 0.5,
     },
     footer: {
-      style: 'dark',
+      style: 'light',
       links: [
         {
           title: 'Documentation',

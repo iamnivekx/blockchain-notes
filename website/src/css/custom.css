@@ -127,8 +127,8 @@
 :root {
   /* Docusaurus vars */
   --prism-background-color: #edefff;
-  --ifm-footer-background-color: #fff;
-  --ifm-footer-link-color: #333;
+  --ifm-footer-background-color: #f8fafc;
+  --ifm-footer-link-color: #475569;
   --ifm-code-font-size: 95%;
   --ifm-color-primary: #2E5299;
   --ifm-h1-font-size: 2.5rem;
@@ -319,6 +319,19 @@ div[class^='docItemContainer_'] article img {
     width: 14rem;
     padding: 0 0.5rem 0 2.25rem;
   }
+}
+
+/* Footer Theme Support */
+[data-theme='light'] .footer {
+  --ifm-footer-background-color: #f8fafc;
+  --ifm-footer-link-color: #475569;
+  --ifm-footer-color: #64748b;
+}
+
+[data-theme='dark'] .footer {
+  --ifm-footer-background-color: #0f172a;
+  --ifm-footer-link-color: #cbd5e1;
+  --ifm-footer-color: #94a3b8;
 }
 
 [data-theme='light'] .DocSearch {
