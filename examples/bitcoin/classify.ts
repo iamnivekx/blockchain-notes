@@ -1,6 +1,7 @@
-const typeforce = require('typeforce');
 import { compile, decompile, isCanonicalPubKey } from './script';
-const OPS = require('bitcoin-ops');
+import OPS from 'bitcoin-ops';
+import typeforce from 'typeforce';
+
 const OP_INT_BASE = OPS.OP_RESERVED; // OP_1 - 1
 
 export const types = {

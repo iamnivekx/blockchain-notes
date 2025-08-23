@@ -1,4 +1,4 @@
-const { payments, networks } = require('bitcoinjs-lib');
+import { payments, networks } from 'bitcoinjs-lib';
 
 
 export function p2pkh_address(pubkey, network) {
@@ -39,4 +39,4 @@ function main() {
 
 }
 
-main();
+// main();

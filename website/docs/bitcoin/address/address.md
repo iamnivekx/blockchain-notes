@@ -1,4 +1,6 @@
-# 比特币地址生成
+# 比特币地址生成 (原理篇)
+
+本文将带你**从零开始，深入理解比特币地址的底层构造原理**，并手动实现地址生成。如果你希望在项目中快速应用，可以参考《使用 bitcoinjs-lib 库生成地址》。
 
 比特币地址是接收比特币的标识符，本文档将详细介绍如何生成和验证不同格式的比特币地址。
 
@@ -44,7 +46,7 @@ export function toBech32Address(pubkey: Buffer, pubKeyHash = 0x00): string {
 
 ```typescript
 // 从公钥生成Bech32地址
-const publicKey = Buffer.from('02...', 'hex'); // 压缩公钥
+const publicKey = Buffer.from('031b98c9f3bee12048d0ea57db25372db8da504b65b2adf023123c3cc464c6f283', 'hex'); // 压缩公钥
 const bech32Address = toBech32Address(publicKey);
 console.log('Bech32 Address:', bech32Address); // bc1...
 
@@ -85,7 +87,7 @@ export function toBase58Address(pubkey: Buffer, pubKeyHash = 0x00): string {
 
 ```typescript
 // 生成Legacy地址 (P2PKH)
-const publicKey = Buffer.from('02...', 'hex');
+const publicKey = Buffer.from('031b98c9f3bee12048d0ea57db25372db8da504b65b2adf023123c3cc464c6f283', 'hex');
 const legacyAddress = toBase58Address(publicKey, 0x00);
 console.log('Legacy Address:', legacyAddress); // 1...
 

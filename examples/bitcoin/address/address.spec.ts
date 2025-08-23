@@ -1,3 +1,4 @@
+import { describe, test, expect } from 'vitest';
 import bitcoin from 'bitcoinjs-lib';
 
 import { toBase58Address, toBech32Address } from './address';

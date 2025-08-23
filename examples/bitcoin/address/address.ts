@@ -1,8 +1,9 @@
-import bech32 from 'bech32';
+import { bech32 } from 'bech32';
 import base58 from 'bs58';
 import { sha256x2, sha256, ripemd160 } from '../utils/crypto';
 
 export function toBech32Address(pubkey: Buffer, pubKeyHash = 0x00): string {
+  // pubKeyHash: Witness version. 0x00 for P2WPKH
   const hash256 = sha256(pubkey);
   const hash160 = ripemd160(hash256);
 
@@ -12,6 +13,7 @@ export function toBech32Address(pubkey: Buffer, pubKeyHash = 0x00): string {
 }
 
 // https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch04_keys.adoc
+// pubKeyHash: Version byte. 0x00 for Mainnet P2PKH, 0x6f for Testnet, etc.
 export function toBase58Address(pubkey: Buffer, pubKeyHash = 0x00): string {
   const hash256 = sha256(pubkey);
   const hash160 = ripemd160(hash256);

@@ -1,6 +1,8 @@
+import { describe, test, expect } from 'vitest';
+
 import { types, p2sh, p2pk, p2pkh, p2wsh, p2wpkh, multisig } from './classify';
 import { fromASM } from './script';
-import { valid, invalid } from './__mocks__/classify.json';
+import { valid } from './__mocks__/classify.json';
 
 describe('Bitcoin classify', () => {
   describe('valid', () => {

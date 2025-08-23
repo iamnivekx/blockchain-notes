@@ -1,6 +1,6 @@
 import typeforce from 'typeforce';
 import OPS from 'bitcoin-ops';
-import ecc from 'tiny-secp256k1';
+import * as ecc from 'tiny-secp256k1';
 import pushdata from 'pushdata-bitcoin';
 import REVERSE_OPS from 'bitcoin-ops/map';
 

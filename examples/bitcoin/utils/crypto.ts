@@ -1,4 +1,4 @@
-import { createHash } from 'create-hash';
+import createHash from 'create-hash';
 
 export function ripemd160(buffer: Buffer) {
   try {
