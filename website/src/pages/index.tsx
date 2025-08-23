@@ -11,70 +11,70 @@ const BLOCKCHAIN_FEATURES = [
   {
     title: '比特币开发',
     description: '脚本系统、地址生成、交易构建、多签',
-    icon: 'https://cryptofonts.com/img/icons/btc.svg',
+    icon: 'icons/btc.svg',
     link: '/bitcoin/intro',
     color: 'from-yellow-500 to-yellow-600',
   },
   {
     title: '以太坊生态',
     description: '智能合约、账户管理、交易签名、多签',
-    icon: 'https://cryptofonts.com/img/icons/eth.svg',
+    icon: 'icons/eth.svg',
     link: '/ethereum/intro',
     color: 'from-blue-500 to-blue-600',
   },
   {
     title: 'Solana生态',
     description: '账户管理、交易签名、多签、事件订阅',
-    icon: 'https://cryptofonts.com/img/icons/sol.svg',
+    icon: 'icons/sol.svg',
     link: '/solana/intro',
     color: 'from-green-400 to-green-500',
   },
   {
     title: 'Polkadot生态',
     description: '账户管理、交易签名、多签',
-    icon: 'https://cryptofonts.com/img/icons/dot.svg',
+    icon: 'icons/dot.svg',
     link: '/polkadot/intro',
     color: 'from-pink-500 to-pink-600',
   },
   {
     title: 'Cosmos生态',
     description: '账户管理、交易签名、多签',
-    icon: 'https://cryptofonts.com/img/icons/atom.svg',
+    icon: 'icons/atom.svg',
     link: '/cosmos/intro',
     color: 'from-slate-600 to-slate-700',
   },
   {
     title: 'Ripple生态',
     description: '账户管理、交易签名、多签',
-    icon: 'https://cryptofonts.com/img/icons/xrp.svg',
+    icon: 'icons/xrp.svg',
     link: '/ripple/intro',
     color: 'from-gray-700 to-gray-800',
   },
   {
     title: 'Avalanche生态',
     description: '高性能区块链、智能合约、账户管理、交易签名',
-    icon: 'https://cryptofonts.com/img/icons/avax.svg',
+    icon: 'icons/avax.svg',
     link: '/avalanche/intro',
     color: 'from-red-500 to-red-600',
   },
   {
     title: 'Aptos生态',
     description: '智能合约、账户管理、交易签名、多签',
-    icon: 'https://cryptofonts.com/img/icons/apt.svg',
+    icon: 'icons/apt.svg',
     link: '/aptos/intro',
     color: 'from-black to-gray-800',
   },
   {
     title: 'Cardano生态',
     description: '智能合约、账户管理、交易签名、多签',
-    icon: 'https://cryptofonts.com/img/icons/ada.svg',
+    icon: 'icons/ada.svg',
     link: '/cardano/intro',
     color: 'from-blue-600 to-blue-700',
   },
   {
     title: '跨链技术',
     description: 'AnySwap 桥接协议、ABI 处理、代币授权、USDT/CLV 桥接',
-    icon: 'https://cryptofonts.com/img/icons/gswap.svg',
+    icon: 'icons/gswap.svg',
     link: '/crosschain/anyswap/intro',
     color: 'from-emerald-500 to-emerald-600',
   },
@@ -114,11 +114,11 @@ const QUICK_START_ITEMS = [
 // 组件
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
-  const bannerUrl = useBaseUrl('/img/banner.jpg');
+  const bannerUrl = useBaseUrl('banner.jpg');
 
   return (
     <header
-      className="relative px-2 py-20 text-center text-foreground"
+      className="relative px-2 py-20 text-center"
       style={{
         backgroundImage: `url(${bannerUrl})`,
         backgroundSize: 'cover',
@@ -126,8 +126,12 @@ function HomepageHeader() {
         backgroundRepeat: 'no-repeat',
       }}
     >
-      <div className="container">
-        <Heading as="h1" className="mb-4 text-2xl font-bold md:text-3xl lg:text-5xl">
+      {/* 叠加蒙层 */}
+      <div className="absolute inset-0 bg-black/60"></div>
+
+      {/* 内容容器 */}
+      <div className="container relative z-10">
+        <Heading as="h1" className="mb-4 text-2xl font-bold text-white md:text-3xl lg:text-5xl">
           {siteConfig.title}
         </Heading>
         <div className="flex flex-col-1 sm:flex-row gap-6 justify-center">
@@ -161,21 +165,23 @@ function FeatureCard({
   color: string;
 }) {
   return (
-    <div className="group text-center flex flex-col h-full">
-      <div className="mb-8">
-        <div className="w-20 h-20 mx-auto rounded-full flex items-center justify-center bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg shadow-lg transition-all duration-300 group-hover:scale-110">
-          <img src={icon} alt={title} className="w-14 h-14" />
+    <div className="group text-center flex flex-col h-full p-0.5 rounded-xl transition-all duration-300 bg-card border border-border/50 hover:!border-primary/50 hover:shadow-[0_0_15px_theme(colors.primary/50%)]">
+      <div className="bg-card rounded-[11px] h-full flex flex-col">
+        <div className="mb-8 pt-6">
+          <div className="w-20 h-20 mx-auto rounded-full flex items-center justify-center bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg shadow-lg transition-all duration-300 group-hover:scale-110">
+            <img src={useBaseUrl(icon)} alt={title} className="w-14 h-14" />
+          </div>
         </div>
-      </div>
-      <h3 className="text-xl font-bold mb-3 text-foreground">{title}</h3>
-      <p className="text-muted-foreground mb-4 text-sm leading-relaxed flex-grow">{description}</p>
-      <div className="mt-auto">
-        <Link
-          to={link}
-          className="inline-block bg-secondary hover:bg-secondary/80 text-secondary-foreground px-4 py-2 rounded-lg font-medium transition-all duration-200 shadow-sm hover:shadow-md"
-        >
-          了解更多
-        </Link>
+        <h3 className="text-xl font-bold mb-3 text-foreground">{title}</h3>
+        <p className="text-muted-foreground mb-4 text-sm leading-relaxed flex-grow px-4">{description}</p>
+        <div className="mt-auto pb-6">
+          <Link
+            to={link}
+            className="inline-block bg-secondary hover:bg-secondary/80 text-secondary-foreground px-4 py-2 rounded-lg font-medium transition-all duration-200 shadow-sm hover:shadow-md"
+          >
+            了解更多
+          </Link>
+        </div>
       </div>
     </div>
   );
@@ -209,7 +215,7 @@ function QuickStartCard({
   color: string;
 }) {
   return (
-    <div className="bg-card rounded-xl shadow-lg border border-border/50 hover:shadow-xl transition-all duration-300 backdrop-blur-sm">
+    <div className="bg-card rounded-xl shadow-lg border border-border/50 hover:shadow-xl transition-all duration-300 backdrop-blur-sm hover:!border-primary/50 hover:shadow-[0_0_15px_theme(colors.primary/50%)]">
       <div className="p-6">
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-xl font-bold text-foreground">{title}</h3>

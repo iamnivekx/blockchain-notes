@@ -105,7 +105,7 @@ const config: Config = {
           rehypePlugins: [rehypeKatex],
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: ['./src/css/custom.css'],
         },
       } satisfies Preset.Options,
     ],
