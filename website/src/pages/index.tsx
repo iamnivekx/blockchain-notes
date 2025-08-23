@@ -114,7 +114,7 @@ const QUICK_START_ITEMS = [
 // 组件
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
-  const bannerUrl = useBaseUrl('banner.jpg');
+  const bannerUrl = useBaseUrl('/img/banner.jpg');
 
   return (
     <header
@@ -126,12 +126,10 @@ function HomepageHeader() {
         backgroundRepeat: 'no-repeat',
       }}
     >
-      {/* 叠加蒙层 */}
-      <div className="absolute inset-0 bg-black/60"></div>
+      <div className="absolute inset-0 bg-overlay/50"></div>
 
-      {/* 内容容器 */}
       <div className="container relative z-10">
-        <Heading as="h1" className="mb-4 text-2xl font-bold text-white md:text-3xl lg:text-5xl">
+        <Heading as="h1" className="mb-4 text-2xl font-bold text-foreground md:text-3xl lg:text-5xl">
           {siteConfig.title}
         </Heading>
         <div className="flex flex-col-1 sm:flex-row gap-6 justify-center">

@@ -89,6 +89,9 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+    
+    /* Banner overlay colors for better theme support */
+    --overlay: 0 0% 0%;
   }
 
   html[data-theme='dark'] {
@@ -159,6 +162,9 @@ html[data-theme='dark'] {
   --menu-link-active: rgba(255, 255, 255, 0.1);
   --ifm-menu-color-active: var(--ifm-color-primary);
 
+  /* Banner overlay for dark theme */
+  /* --overlay: 0 0% 0%; */
+
   /* Docsearch color */
   --table-of-contents-color: #e8e8e8;
   --docusaurus-highlighted-code-line-bg: #0000004d;
@@ -187,8 +193,7 @@ a[class^='footerLogoLink_'] {
 
 /* Custom CSS that should always be included */
 .navbar__item svg,
-.menu__link svg,
-.footer__link-item svg {
+.menu__link svg {
   display: none;
 }
 
@@ -372,4 +377,13 @@ div[class^='docItemContainer_'] article img {
     var(--ifm-color-emphasis-200) 0%,
     var(--ifm-color-emphasis-100) 100%
   );
+}
+
+/* Banner overlay - only active in dark theme */
+.bg-overlay\/50 {
+  background-color: transparent;
+}
+
+html[data-theme='dark'] .bg-overlay\/50 {
+  background-color: rgba(0, 0, 0, 0.5);
 }
