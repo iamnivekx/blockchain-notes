@@ -1,5 +1,7 @@
 # 地址管理
 
+> 📁 **完整代码** [examples/solana/account/address.ts](https://github.com/iamnivekx/blockchain-notes/blob/main/examples/solana/account/address.ts)
+>
 在Solana中，地址是账户的唯一标识符，用于接收SOL、SPL代币和调用智能合约。理解地址的生成和验证对于开发安全的应用程序至关重要。
 
 ## 地址格式
@@ -12,47 +14,24 @@ Solana地址使用以下格式：
 
 ## 地址生成
 
+### 基础导入和依赖
+
+```ts title="dependencies" file=<rootDir>/examples/solana/account/address.ts#L1-L8 showLineNumbers
+```
+
 ### 从助记词生成地址
 
-```typescript
-import { Keypair } from '@solana/web3.js';
-import * as bip39 from 'bip39';
-import { HDKey } from 'micro-ed25519-hdkey';
-
-function mnemonicToKeypair(mnemonic: string, password: string = '', index: number = 0) {
-  // 从助记词生成种子
-  const seed = bip39.mnemonicToSeedSync(mnemonic, password);
-  
-  // 创建HD钱包
-  const hd = HDKey.fromMasterSeed(seed.toString('hex'));
-  
-  // 使用Solana的BIP44路径
-  const path = `m/44'/501'/${index}'/0'`;
-  const derivedSeed = hd.derive(path).privateKey;
-  
-  // 从种子创建密钥对
-  return Keypair.fromSeed(derivedSeed);
-}
-
-// 使用示例
-const mnemonic = process.env.MNEMONIC || 'your mnemonic here';
-const keypair = mnemonicToKeypair(mnemonic);
-console.log('Public Key:', keypair.publicKey.toBase58());
-console.log('Secret Key:', bs58.encode(keypair.secretKey));
+```ts title="mnemonicToKeypair" file=<rootDir>/examples/solana/account/address.ts#L10-L22 showLineNumbers
 ```
 
 ### 随机生成地址
 
-```typescript
-import { Keypair } from '@solana/web3.js';
-import bs58 from 'bs58';
+```ts title="generateRandomKeypair" file=<rootDir>/examples/solana/account/address.ts#L24-L34
+```
 
-// 生成新的随机密钥对
-const keypair = Keypair.generate();
+### 完整的使用示例
 
-console.log('Public Key:', keypair.publicKey.toBase58());
-console.log('Secret Key:', bs58.encode(keypair.secretKey));
-console.log('Address:', keypair.publicKey.toBase58());
+```ts title="main.ts" file=<rootDir>/examples/solana/account/address.ts#L1-L50
 ```
 
 ### 从私钥恢复地址
@@ -133,45 +112,6 @@ function validateSolanaAddress(address: string): {
 }
 ```
 
-## 地址转换
-
-### 不同格式之间的转换
-
-```typescript
-class AddressConverter {
-  // 转换为字节数组
-  static toBytes(address: string): Uint8Array {
-    const publicKey = new PublicKey(address);
-    return publicKey.toBytes();
-  }
-  
-  // 从字节数组转换
-  static fromBytes(bytes: Uint8Array): string {
-    const publicKey = new PublicKey(bytes);
-    return publicKey.toBase58();
-  }
-  
-  // 转换为十六进制
-  static toHex(address: string): string {
-    const publicKey = new PublicKey(address);
-    return publicKey.toBuffer().toString('hex');
-  }
-  
-  // 从十六进制转换
-  static fromHex(hex: string): string {
-    const bytes = Buffer.from(hex, 'hex');
-    const publicKey = new PublicKey(bytes);
-    return publicKey.toBase58();
-  }
-}
-
-// 使用示例
-const address = '9WzDXwBbmkg8ZTbNMqUxvQRAyrZzDsGYdLVL9zYtAWWM';
-
-console.log('To Bytes:', AddressConverter.toBytes(address));
-console.log('To Hex:', AddressConverter.toHex(address));
-```
-
 ## 地址派生
 
 ### 从主密钥派生子地址
@@ -220,53 +160,6 @@ const addr1 = '9WzDXwBbmkg8ZTbNMqUxvQRAyrZzDsGYdLVL9zYtAWWM';
 const addr2 = '9WzDXwBbmkg8ZTbNMqUxvQRAyrZzDsGYdLVL9zYtAWWM';
 
 console.log('Addresses Equal:', addressesEqual(addr1, addr2)); // true
-```
-
-## 完整示例
-
-```typescript
-import { Keypair, PublicKey, SystemProgram } from '@solana/web3.js';
-import * as bip39 from 'bip39';
-import { HDKey } from 'micro-ed25519-hdkey';
-import bs58 from 'bs58';
-
-async function addressManagementExample() {
-  try {
-    // 1. 从助记词生成地址
-    console.log("=== 从助记词生成地址 ===");
-    const mnemonic = process.env.MNEMONIC || 'test test test test test test test test test test test test junk';
-    const keypair = mnemonicToKeypair(mnemonic);
-    console.log('Generated Address:', keypair.publicKey.toBase58());
-    
-    // 2. 验证地址格式
-    console.log("\n=== 验证地址格式 ===");
-    const isValid = isValidSolanaAddress(keypair.publicKey.toBase58());
-    console.log('Address Valid:', isValid);
-    
-    // 3. 地址格式转换
-    console.log("\n=== 地址格式转换 ===");
-    const hexAddress = AddressConverter.toHex(keypair.publicKey.toBase58());
-    const recoveredAddress = AddressConverter.fromHex(hexAddress);
-    console.log('Hex Conversion:', {
-      original: keypair.publicKey.toBase58(),
-      hex: hexAddress,
-      recovered: recoveredAddress
-    });
-    
-    // 4. 派生子地址
-    console.log("\n=== 派生子地址 ===");
-    const childAddresses = deriveChildAddresses(mnemonic, 3);
-    childAddresses.forEach((address, index) => {
-      console.log(`Child ${index}: ${address}`);
-    });
-    
-  } catch (error) {
-    console.error("❌ 错误:", error);
-  }
-}
-
-// 运行示例
-addressManagementExample().catch(console.error);
 ```
 
 ## 最佳实践

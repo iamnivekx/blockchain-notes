@@ -3,7 +3,7 @@ import assert from 'assert';
 import nacl from 'tweetnacl';
 import { sha3_256 } from '@noble/hashes/sha3';
 
-function pubKeyToAddress(publicKey) {
+function pubKeyToAddress(publicKey: Uint8Array) {
 	const hash = sha3_256.create();
 	hash.update(publicKey);
 	hash.update("\0");
